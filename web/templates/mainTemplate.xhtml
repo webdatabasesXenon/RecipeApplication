@@ -98,10 +98,10 @@
 
         <nav>
             <ul class="topnav" id="myTopnav">
-                <li><a href="#news">FIND RECIPES</a></li>
-                <li><a href="#contact">FIND FRIENDS</a></li>
-                <li><a href="#about">JOIN NOW FOR FREE</a></li>
-                <li><a href="#about">ABOUT FRESHIPES</a></li>
+                <li><h:link value="FIND RECIPES" outcome="recipes" /></li>
+                <li><h:link value="FIND FRIENDS" outcome="friends" /></li>
+                <li><h:link value="JOIN NOW FOR FREE" outcome="join" /></li>
+                <li><h:link value="ABOUT FRESHIPES" outcome="about" /></li>
                 <li class="icon">
                     <a href="javascript:void(0);" style="font-size:15px;" onclick="collapseNav()">☰</a>
                 </li>
@@ -115,23 +115,23 @@
         <footer class="footer-basic-centered">
 
             <p class="footer-company-motto">
-                <a href="#" class="footerLogo">Freshipes</a>
+                <h:link value="Freshipes" outcome="index" class="footerLogo" />
             </p>
 
             <p class="footer-links">
                     <h:link value="Home" outcome="index" />
                     ·
-                    <a href="#">Recipes</a>
+                    <h:link value="Recipes" outcome="recipes" />
                     ·
-                    <a href="#">Friends</a>
+                    <h:link value="Friends" outcome="friends" />
                     ·
-                    <a href="#">Join</a>
+                    <h:link value="Join" outcome="join" />
                     ·
-                    <a href="#">About Us</a>
+                    <h:link value="About Us" outcome="about" />
                     ·
-                    <a href="#">Contact Us</a>
+                    <h:link value="Contact Us" outcome="contact" />
                     ·
-                    <a href="#">Site Map</a>
+                    <h:link value="SiteMap" outcome="sitemap" />
 
             </p>
 
