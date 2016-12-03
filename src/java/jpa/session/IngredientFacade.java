@@ -21,7 +21,7 @@ public class IngredientFacade extends AbstractFacade<Ingredient> {
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
 

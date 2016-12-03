@@ -6,6 +6,8 @@ import jsf.util.PaginationHelper;
 import jpa.session.IngredientFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -109,6 +111,20 @@ public class IngredientController implements Serializable {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
         }
+    }
+    public List<String> getByRecipeId(Integer ID){
+        String temp= new String();
+        //DataModel theitems  = getPagination().createPageDataModel();
+            List <Ingredient> results= this.ejbFacade.getEntityManager().createNamedQuery("Ingredient.findByRecipeid").setParameter("recipeid", ID).getResultList();
+            ArrayList <String> finale=new ArrayList();
+            for(int i=0;i<results.size();i++){
+                System.out.println(results.get(i).toString());
+                temp+=results.get(i).getQuantity()+" "+results.get(i).getUnit()+" "+results.get(i).getName();
+                finale.add(temp);
+                temp="";
+            }
+        
+        return finale;
     }
 
     public String destroy() {

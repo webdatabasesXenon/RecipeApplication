@@ -11,7 +11,7 @@ import jpa.entities.Recipesteps;
 import jpa.entities.User;
 import jpa.entities.Usereview;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-03T14:24:02")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-03T15:26:24")
 @StaticMetamodel(Recipe.class)
 public class Recipe_ { 
 

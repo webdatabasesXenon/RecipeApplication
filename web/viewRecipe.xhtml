@@ -41,7 +41,12 @@
                         <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
                         <h:panelGrid columns="2" cellpadding="5">
                             <!--<p:graphicImage name="demo/images/godfather/godfather2.jpg" />-->
-                            <h:outputText value="Blahblah"></h:outputText>
+                            <h:dataTable value="#{ingredientController.getByRecipeId(1)}" var="m">
+                                <h:column>
+                                    <f:facet name="header">Ingredients</f:facet>
+                                        #{m.toString()}
+                                 </h:column>
+                                 </h:dataTable>
                         </h:panelGrid>
                     </p:fieldset>
                     <p:fieldset legend="Recipe Steps" toggleable="true" toggleSpeed="500">
