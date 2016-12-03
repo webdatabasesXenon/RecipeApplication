@@ -3,12 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/entities/ImagePK.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/entities/Image.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/entities/Recipe.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jsf/IngredientController.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/join.xhtml</file>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/Bundle.properties</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/templates/mainTemplate.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/index.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/entities/Ingredient.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/ingredient/List.xhtml</file>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/session/CountriesBean.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/session/UnitsBean.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/index.xhtml</file>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/WEB-INF/glassfish-resources.xml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/session/UnitsBean.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/ingredient/View.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/recipe/Create.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/templates/mainTemplate.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jsf/RecipeController.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/entities/IngredientPK.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/recipe/List.xhtml</file>
         </group>
     </open-files>
 </project-private>
