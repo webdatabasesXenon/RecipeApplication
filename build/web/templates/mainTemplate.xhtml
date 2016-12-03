@@ -1,0 +1,158 @@
+<?xml version='1.0' encoding='UTF-8' ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />	
+        <h:outputStylesheet name="css/default.css"/>
+        <h:outputStylesheet name="css/cssLayout.css"/>
+        <h:outputStylesheet name="font-awesome-4.7.0/css/font-awesome.min.css"/>
+        <h:outputScript name="js/freshipes.js" />
+        <!-- <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
+        <h:outputScript name="bootstrap/js/bootstrap.js" /> -->
+        <title>Facelets Template</title>
+    </h:head>
+
+    <h:body>
+        
+        <header id="top">
+            <div class="top-left">
+                <h:link value="Freshipes" outcome="index" class="siteLogo" />
+            </div>
+            <div class="top-center">
+                <h:inputText a:placeholder="Find the perfect recipe for every meal!">
+                    
+                </h:inputText>
+                <i class="fa fa-search" aria-hidden="true"></i>
+            </div>
+            <div class="top-right">
+                <h:link value="Login" outcome="login" />
+                |
+                <h:link value="Join" outcome="join" />
+                <!-- <a href="#" onclick="PF('dlg1').show();">Join</a>
+                 <p:commandLink id="join" class="headerlinks" value="Join" type="link" onclick="PF('dlg1').show();" /> 
+                 <p:dialog header="Sign Up" widgetVar="dlg1" modal="true" height="375">
+                    <h:form>
+                        <h:panelGrid columns="1" style =" margin-top: 20px; ">
+                         
+                        <h:panelGroup>
+                            <h:outputLabel>Username <span style="color: red; font-size: 20px;">*</span> &nbsp;&nbsp; </h:outputLabel>
+                        <h:inputText id="username" required="true" size="50" requiredMessage="Please enter the username!!" p:placeholder="username"></h:inputText>
+                        </h:panelGroup>
+                       <br/>
+                       
+                        <h:panelGroup>
+                            <h:outputLabel> Email &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h:outputLabel>
+                            <h:inputText id="email" required="true" size="50" requiredMessage="Please enter your email" p:placeholder="email"></h:inputText>
+                        </h:panelGroup>
+                       <br/>
+                       
+                       <h:panelGroup>
+                           <h:outputLabel> Confirm Email </h:outputLabel>
+                           <h:inputText id="cemail" required="true" size="50" requiredMessage="Please confirm your email" p:placeholder="email"></h:inputText>
+                       </h:panelGroup>
+                       <br/>
+                       
+                        <h:panelGroup>
+                           <h:outputLabel> Country &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</h:outputLabel>
+                           <h:inputText id="country" required="true" size="50" requiredMessage="Please enter the country field" p:placeholder="country"></h:inputText>
+                       </h:panelGroup>
+                       <br/>
+                       
+                       <h:panelGroup>
+                           <h:outputLabel> Zip/Postal Code </h:outputLabel>
+                           <h:inputText id="zipcode" required="true" size="50" requiredMessage="Please enter the zip/postal code field" p:placeholder="country"></h:inputText>
+                       </h:panelGroup>
+                       <br/>
+                       
+                        <h:panelGroup>
+                        <h:outputLabel> Password <span style="color: red; font-size: 20px;">*</span> &nbsp;&nbsp;</h:outputLabel>
+                        <h:inputSecret id="password" required="true" size="50" requiredMessage="Please enter the password !!" p:placeholder ="password"></h:inputSecret> 
+                        </h:panelGroup>
+                       <br/>
+                       
+                       <h:panelGroup>
+                        <h:outputLabel> Confirm Password <span style="color: red; font-size: 20px;">*</span> &nbsp;&nbsp;</h:outputLabel>
+                        <h:inputSecret id="cpassword" required="true" size="50" requiredMessage="Please enter the password !!" p:placeholder ="password"></h:inputSecret> 
+                        </h:panelGroup>
+                       <br/>
+                       
+                        <h:panelGroup>
+                        <h:commandButton value="Sign Up"> </h:commandButton>
+                      
+                        </h:panelGroup>
+                        </h:panelGrid>
+                    </h:form>
+                 </p:dialog> -->
+            </div>
+        </header>
+
+        <nav>
+            <ul class="topnav" id="myTopnav">
+                <li><h:link value="FIND RECIPES" outcome="recipes" /></li>
+                <li><h:link value="FIND FRIENDS" outcome="friends" /></li>
+                <li><h:link value="JOIN NOW FOR FREE" outcome="join" /></li>
+                <li><h:link value="ABOUT FRESHIPES" outcome="about" /></li>
+                <li class="icon">
+                    <a href="javascript:void(0);" style="font-size:15px;" onclick="collapseNav()">☰</a>
+                </li>
+            </ul>
+        </nav>
+
+        <div id="content">
+            <ui:insert name="content">Content</ui:insert>
+        </div>
+
+        <footer class="footer-basic-centered">
+
+            <p class="footer-company-motto">
+                <h:link value="Freshipes" outcome="index" class="footerLogo" />
+            </p>
+
+            <p class="footer-links">
+                    <h:link value="Home" outcome="index" />
+                    ·
+                    <h:link value="Recipes" outcome="recipes" />
+                    ·
+                    <h:link value="Friends" outcome="friends" />
+                    ·
+                    <h:link value="Join" outcome="join" />
+                    ·
+                    <h:link value="About Us" outcome="about" />
+                    ·
+                    <h:link value="Contact Us" outcome="contact" />
+                    ·
+                    <h:link value="SiteMap" outcome="sitemap" />
+
+            </p>
+
+            <p class="socialMedia">
+                <!-- <a href="#" class="facebook">Facebook</a>
+
+                <a href="#" class="twitter">Twitter</a>
+
+                <a href="#" class="instagram">Instagram</a> -->
+                
+                <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+
+                <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+
+                <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            </p>
+
+            <p class="footer-company-name">Copyright &copy; 2016, Xenon Group</p>
+
+        </footer>
+
+    </h:body>
+
+</html>

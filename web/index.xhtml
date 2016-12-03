@@ -13,6 +13,12 @@
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
               Home Page Content
+              <h:form>
+                    
+                    <h:commandButton id="submit" value="go to view recipe" action="viewRecipe"  >
+                        <f:param name="id" value="2"/>
+                    </h:commandButton>
+                </h:form>
             </ui:define>
         </ui:composition>
     </body>
