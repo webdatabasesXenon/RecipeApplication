@@ -112,19 +112,13 @@ public class IngredientController implements Serializable {
             return null;
         }
     }
-    public List<String> getByRecipeId(Integer ID){
-        String temp= new String();
-        //DataModel theitems  = getPagination().createPageDataModel();
-            List <Ingredient> results= this.ejbFacade.getEntityManager().createNamedQuery("Ingredient.findByRecipeid").setParameter("recipeid", ID).getResultList();
-            ArrayList <String> finale=new ArrayList();
-            for(int i=0;i<results.size();i++){
-                System.out.println(results.get(i).toString());
-                temp+=results.get(i).getQuantity()+" "+results.get(i).getUnit()+" "+results.get(i).getName();
-                finale.add(temp);
-                temp="";
-            }
+    public List<Ingredient> getByRecipeId(Integer ID){
         
-        return finale;
+        List <Ingredient> results= this.ejbFacade.getEntityManager().createNamedQuery("Ingredient.findByRecipeid").
+                setParameter("recipeid", ID).getResultList();
+            
+        
+        return results;
     }
 
     public String destroy() {

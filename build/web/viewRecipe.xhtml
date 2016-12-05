@@ -43,8 +43,16 @@
                             <!--<p:graphicImage name="demo/images/godfather/godfather2.jpg" />-->
                             <h:dataTable value="#{ingredientController.getByRecipeId(1)}" var="m">
                                 <h:column>
-                                    <f:facet name="header">Ingredients</f:facet>
-                                        #{m.toString()}
+                                    <f:facet name="header">Quantity</f:facet>
+                                        #{m.quantity}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Unit</f:facet>
+                                        #{m.unit}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Ingredient</f:facet>
+                                        #{m.name}
                                  </h:column>
                                  </h:dataTable>
                         </h:panelGrid>
@@ -53,7 +61,16 @@
                         <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
                         <h:panelGrid columns="2" cellpadding="5">
                             <!--<p:graphicImage name="demo/images/godfather/godfather2.jpg" />-->
-                            <h:outputText value="BLAH BLAH BLAH"></h:outputText>
+                            <h:dataTable value="#{recipestepsController.getRecipeStepsById(1)}" var="m">
+                                <h:column>
+                                    <f:facet name="header">Step</f:facet>
+                                        #{m.number}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Instruction</f:facet>
+                                        #{m.text}
+                                 </h:column>
+                                 </h:dataTable>
                         </h:panelGrid>
                     </p:fieldset>
                 </h:form>

@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/Bundle.properties</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/templates/mainTemplate.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/index.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/session/CountriesBean.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/src/java/jpa/session/UnitsBean.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/RecipeApplication-github/web/WEB-INF/glassfish-resources.xml</file>
+            <file>file:/Users/kawimike712/Grad_School/Web_database/RecipeApplication/RecipeApplication/src/java/jpa/entities/Recipesteps.java</file>
+            <file>file:/Users/kawimike712/Grad_School/Web_database/RecipeApplication/RecipeApplication/src/java/jsf/IngredientController.java</file>
+            <file>file:/Users/kawimike712/Grad_School/Web_database/RecipeApplication/RecipeApplication/src/java/jsf/RecipestepsController.java</file>
+            <file>file:/Users/kawimike712/Grad_School/Web_database/RecipeApplication/RecipeApplication/web/viewRecipe.xhtml</file>
         </group>
     </open-files>
 </project-private>

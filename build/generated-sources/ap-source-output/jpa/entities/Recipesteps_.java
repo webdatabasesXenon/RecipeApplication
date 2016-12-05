@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import jpa.entities.Recipe;
 import jpa.entities.RecipestepsPK;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-03T15:26:24")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T11:05:35")
 @StaticMetamodel(Recipesteps.class)
 public class Recipesteps_ { 
 
