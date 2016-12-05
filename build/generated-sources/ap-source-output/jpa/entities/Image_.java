@@ -6,7 +6,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import jpa.entities.ImagePK;
 import jpa.entities.Recipe;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T11:05:35")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T11:10:37")
 @StaticMetamodel(Image.class)
 public class Image_ { 
 

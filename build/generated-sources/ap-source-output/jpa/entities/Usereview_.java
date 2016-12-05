@@ -7,7 +7,7 @@ import jpa.entities.Recipe;
 import jpa.entities.User;
 import jpa.entities.UsereviewPK;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T11:05:35")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T11:10:37")
 @StaticMetamodel(Usereview.class)
 public class Usereview_ { 
 
