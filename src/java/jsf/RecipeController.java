@@ -6,6 +6,8 @@ import jsf.util.PaginationHelper;
 import jpa.session.RecipeFacade;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -114,6 +116,31 @@ public class RecipeController implements Serializable {
         recreatePagination();
         recreateModel();
         return "List";
+    }
+    
+    public List<Recipe> getRecipeBySearch(/*String search*/){
+        String search = "chicken veal and bread";
+        String temp="";
+        String[] keywords = search.split(" ");
+        
+        List<Recipe> total=this.ejbFacade.findAll();
+        ArrayList<Recipe> results= new ArrayList<Recipe>();
+        for(Recipe r: total){
+            temp=r.getDescription().toLowerCase();
+            for(String s:keywords){
+                if(s.length()<4)continue;
+                s=s.toLowerCase();
+                if(temp.contains(s))
+                    if(!results.contains(r))
+                        results.add(r);
+            }
+            temp="";
+        }
+        System.out.println("List of stuff");
+        for (Recipe r:results)
+            System.out.println(r.getRecipeid()+" "+r.getDescription());
+        
+        return results;
     }
 
     public String destroyAndView() {

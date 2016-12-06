@@ -7,7 +7,7 @@ import javax.persistence.metamodel.StaticMetamodel;
 import jpa.entities.FriendPK;
 import jpa.entities.User;
 
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T11:10:37")
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-05T19:15:43")
 @StaticMetamodel(Friend.class)
 public class Friend_ { 
 

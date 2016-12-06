@@ -44,7 +44,9 @@ import javax.xml.bind.annotation.XmlTransient;
     @NamedQuery(name = "Recipe.findByVisit", query = "SELECT r FROM Recipe r WHERE r.visit = :visit"),
     @NamedQuery(name = "Recipe.findByReview", query = "SELECT r FROM Recipe r WHERE r.review = :review"),
     @NamedQuery(name = "Recipe.findByAvgreview", query = "SELECT r FROM Recipe r WHERE r.avgreview = :avgreview"),
-    @NamedQuery(name = "Recipe.findByDate", query = "SELECT r FROM Recipe r WHERE r.date = :date")})
+    @NamedQuery(name = "Recipe.findByDate", query = "SELECT r FROM Recipe r WHERE r.date = :date")})//,
+    //@NamedQuery(name = "Recipe.findBySearchWord", query = "SELECT r FROM Recipe Where r.description")})
+    
 public class Recipe implements Serializable {
 
     private static final long serialVersionUID = 1L;

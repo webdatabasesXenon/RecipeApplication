@@ -16,8 +16,13 @@
               <h:form>
                     
                     <h:commandButton id="submit" value="go to view recipe" action="viewRecipe"  >
-                        <f:param name="id" value="2"/>
+                       
                     </h:commandButton>
+              </h:form>
+              <h:form>
+                  <h:commandButton value="chicken" action ="#{recipeController.getRecipeBySearch()}"/>
+                  
+          
                 </h:form>
             </ui:define>
         </ui:composition>
