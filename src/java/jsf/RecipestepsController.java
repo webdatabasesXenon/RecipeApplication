@@ -22,14 +22,14 @@ import javax.faces.model.SelectItem;
 @Named("recipestepsController")
 @SessionScoped
 public class RecipestepsController implements Serializable {
-
+   
     private Recipesteps current;
     private DataModel items = null;
     @EJB
     private jpa.session.RecipestepsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+    
     public RecipestepsController() {
     }
 

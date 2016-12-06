@@ -25,7 +25,7 @@
                 <f:metadata>
                         <f:viewParam name="id" value="#{myBean.id}" />
                 </f:metadata>
-                <h:outputText style="font-size: 20px ;font-weight: bold; padding: 5px" value="#{recipeController.getRecipe(1).recipename}">
+                <h:outputText style="font-size: 20px ;font-weight: bold; padding: 5px" value="#{recipeController.getRecipe(recipeController.theId).recipename}">
                 </h:outputText>
                 <br></br>
                 <h:graphicImage value="resources/images/sofa.png" />
@@ -35,7 +35,7 @@
                     <p:fieldset legend="Description" toggleable="true" style="margin-bottom:20px">
                         <h:panelGrid columns="2" cellpadding="5">
                             <!--<p:graphicImage name="demo/images/godfather/godfather1.jpg" />-->
-                            <h:outputText value="#{recipeController.getRecipe(1).description}"/>
+                            <h:outputText value="#{recipeController.getRecipe(recipeController.theId).description}"/>
                         </h:panelGrid>
                     </p:fieldset>
 
@@ -43,7 +43,7 @@
                         <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
                         <h:panelGrid columns="2" cellpadding="5">
                             <!--<p:graphicImage name="demo/images/godfather/godfather2.jpg" />-->
-                            <h:dataTable value="#{ingredientController.getByRecipeId(1)}" var="m">
+                            <h:dataTable value="#{ingredientController.getByRecipeId(recipeController.theId)}" var="m">
                                 <h:column>
                                     <f:facet name="header">Quantity</f:facet>
                                         #{m.quantity}
@@ -63,7 +63,7 @@
                         <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
                         <h:panelGrid columns="2" cellpadding="5">
                             <!--<p:graphicImage name="demo/images/godfather/godfather2.jpg" />-->
-                            <h:dataTable value="#{recipestepsController.getRecipeStepsById(1)}" var="m">
+                            <h:dataTable value="#{recipestepsController.getRecipeStepsById(recipeController.theId)}" var="m">
                                 <h:column>
                                     <f:facet name="header">Step</f:facet>
                                         #{m.number}

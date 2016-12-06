@@ -9,15 +9,19 @@
     <h:head>
         <title>Facelet Title</title>
     </h:head>
+    <f:metadata>
+        <f:viewParam name="theRecipeId" value="3"/>
+    </f:metadata>
+        
     <body>
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
               Home Page Content
               <h:form>
                     
-                    <h:commandButton id="submit" value="go to view recipe" action="viewRecipe"  >
-                       
-                    </h:commandButton>
+                  <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}"  >
+                      <f:param name="theId" value="3" />  
+                </h:commandButton>
               </h:form>
               <h:form>
                   <h:commandButton value="chicken" action ="#{recipeController.getRecipeBySearch()}"/>

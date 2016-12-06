@@ -8,10 +8,12 @@ import jpa.session.RecipeFacade;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.ManagedProperty;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -23,14 +25,30 @@ import javax.faces.model.SelectItem;
 @Named("recipeController")
 @SessionScoped
 public class RecipeController implements Serializable {
-
+    
     private Recipe current;
     private DataModel items = null;
     @EJB
     private jpa.session.RecipeFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private Integer theId=-1;
 
+    public Integer getTheId() {
+        System.out.println("get : theId "+theId);
+        return theId;
+    }
+
+    public void setTheId(Integer theId) {
+        System.out.println("set : theId "+theId);
+        this.theId = theId;
+    }
+    public String bringMeHere(){
+       FacesContext fc = FacesContext.getCurrentInstance();
+      Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
+      theId =  Integer.parseInt(params.get("theId")); 
+      return "viewRecipe";
+    }
     public RecipeController() {
     }
 
