@@ -6,6 +6,7 @@ import jsf.util.PaginationHelper;
 import jpa.session.UserFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -17,6 +18,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import jsf.util.HashedPasswordGenerator;
 
 @Named("userController")
 @SessionScoped
@@ -76,11 +78,15 @@ public class UserController implements Serializable {
     public String prepareCreate() {
         current = new User();
         selectedItemIndex = -1;
-        return "Create";
+        return "login";
     }
 
     public String create() {
-        try {
+        try { 
+            String pwd = current.getPassword();
+            HashedPasswordGenerator hpg = new HashedPasswordGenerator();
+            String hpwd = hpg.sha256(pwd);
+            current.setPassword(hpwd);
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UserCreated"));
             return prepareCreate();
@@ -95,12 +101,36 @@ public class UserController implements Serializable {
         selectedItemIndex = pagination.getPageFirstItem() + getItems().getRowIndex();
         return "Edit";
     }
+    
+    public String prepareChangePassword(User user) {
+        current = user;
+        return "changepassword";
+    }
 
     public String update() {
         try {
+            String pwd = current.getPassword();
+            HashedPasswordGenerator hpg = new HashedPasswordGenerator();
+            String hpwd = hpg.sha256(pwd);
+            current.setPassword(hpwd);
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UserUpdated"));
             return "View";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
+    public String changePassword() {
+        try {
+            String pwd = current.getPassword();
+            HashedPasswordGenerator hpg = new HashedPasswordGenerator();
+            String hpwd = hpg.sha256(pwd);
+            current.setPassword(hpwd);
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage("Your password was successfully changed");
+            return "index";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;
@@ -190,6 +220,12 @@ public class UserController implements Serializable {
 
     public User getUser(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+    
+    public User getUserByUsername(String username) {
+        List<User> results = this.ejbFacade.getEntityManager().createNamedQuery("User.findByUsername").setParameter("username", username).getResultList();
+        User singleResult = results.get(0);
+        return singleResult;
     }
 
     @FacesConverter(forClass = User.class)

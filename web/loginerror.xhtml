@@ -13,19 +13,15 @@
     <body>
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
-                <h:outputText value="#{bundle.LoginTitle}" styleClass="heading" />
-                <form method="POST" action="j_security_check">
-                    <h:messages errorStyle="color: red" infoStyle="color: green"/>
-                    <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
-                        <h:outputLabel value="Username"/>
-                        <input type="text" name="j_username" />
-                        <h:outputLabel value="Password"/>
-                        <input type="password" name="j_password" />
-                        <h:outputText value="" />
-                        <input type="submit" value="Login" class="button" />
-                    </h:panelGrid>
-                </form>
+                <h:outputText value="Oops.." styleClass="heading" />
+                <p>
+                    Your credentials could not be verified. Please try to log in again.
+                </p>
+                <p>
+                    <h:button outcome="login" value="Login" styleClass="button" />
+                </p>
             </ui:define>
         </ui:composition>
     </body>
 </html>
+

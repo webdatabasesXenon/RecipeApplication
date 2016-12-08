@@ -21,7 +21,7 @@ public class FriendFacade extends AbstractFacade<Friend> {
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
 

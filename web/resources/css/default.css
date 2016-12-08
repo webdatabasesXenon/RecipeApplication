@@ -76,6 +76,10 @@ a:link:hover, a:visited:hover  {
     margin-left: 5px;
 }
 
+.welcome-text {
+    font-weight: bold;
+}
+
 .siteLogo {
     display: block;
     text-indent: -9999px;

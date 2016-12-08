@@ -21,7 +21,7 @@ public class UserFacade extends AbstractFacade<User> {
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
 

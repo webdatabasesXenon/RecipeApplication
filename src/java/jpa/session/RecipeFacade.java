@@ -21,7 +21,7 @@ public class RecipeFacade extends AbstractFacade<Recipe> {
     private EntityManager em;
 
     @Override
-    protected EntityManager getEntityManager() {
+    public EntityManager getEntityManager() {
         return em;
     }
 
