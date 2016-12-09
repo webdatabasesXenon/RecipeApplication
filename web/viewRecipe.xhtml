@@ -22,9 +22,7 @@
         </script>
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
-                <f:metadata>
-                        <f:viewParam name="id" value="#{myBean.id}" />
-                </f:metadata>
+                
                 <h:outputText style="font-size: 20px ;font-weight: bold; padding: 5px" value="#{recipeController.getRecipe(recipeController.theId).recipename}">
                 </h:outputText>
                 <br></br>
