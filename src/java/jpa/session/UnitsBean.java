@@ -116,6 +116,14 @@ public class UnitsBean {
         units.put("wedge","wedge");
         units.put("wedges","wedges");
     }
+
+    public Map<String, Object> getUnits() {
+        return units;
+    }
+
+    public void setUnits(Map<String, Object> units) {
+        this.units = units;
+    }
     
     
 }

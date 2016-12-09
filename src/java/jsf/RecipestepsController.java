@@ -6,6 +6,7 @@ import jsf.util.PaginationHelper;
 import jpa.session.RecipestepsFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -21,14 +22,14 @@ import javax.faces.model.SelectItem;
 @Named("recipestepsController")
 @SessionScoped
 public class RecipestepsController implements Serializable {
-
+   
     private Recipesteps current;
     private DataModel items = null;
     @EJB
     private jpa.session.RecipestepsFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
-
+    
     public RecipestepsController() {
     }
 
@@ -66,6 +67,13 @@ public class RecipestepsController implements Serializable {
     public String prepareList() {
         recreateModel();
         return "List";
+    }
+    
+    public List<Recipesteps> getRecipeStepsById(Integer ID){
+        List <Recipesteps> results= this.ejbFacade.getEntityManager().createNamedQuery("Recipesteps.findByRecipeid").setParameter("recipeid", ID).getResultList();
+        return results;
+        
+        
     }
 
     public String prepareView() {

@@ -225,7 +225,7 @@ public class Recipe implements Serializable {
 
     @Override
     public String toString() {
-        return "jpa.entities.Recipe[ recipeid=" + recipeid + " ]";
+        return description + recipename;
     }
     
 }
