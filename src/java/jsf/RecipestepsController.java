@@ -18,6 +18,7 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
 
 @Named("recipestepsController")
 @SessionScoped
@@ -86,12 +87,17 @@ public class RecipestepsController implements Serializable {
         current = new Recipesteps();
         current.setRecipestepsPK(new jpa.entities.RecipestepsPK());
         selectedItemIndex = -1;
-        return "Create";
+        return "create2";
     }
 
     public String create() {
         try {
-            current.getRecipestepsPK().setRecipeid(current.getRecipe().getRecipeid());
+            FacesContext facesContext = FacesContext.getCurrentInstance(); //added
+            HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);  //added
+           Integer recipeid = (Integer) session.getAttribute("CURRENT_RECIPE");  //added
+            current.getRecipestepsPK().setRecipeid(recipeid);   //changed
+
+            //current.getRecipestepsPK().setRecipeid(current.getRecipe().getRecipeid()); // preserved for safety
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RecipestepsCreated"));
             return prepareCreate();

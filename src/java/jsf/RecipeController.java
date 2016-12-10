@@ -21,6 +21,8 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
+
 
 @Named("recipeController")
 @SessionScoped
@@ -96,12 +98,15 @@ public class RecipeController implements Serializable {
     public String prepareCreate() {
         current = new Recipe();
         selectedItemIndex = -1;
-        return "Create";
+        return "create2";  //added;
     }
 
     public String create() {
         try {
             getFacade().create(current);
+            FacesContext facesContext = FacesContext.getCurrentInstance();  //added
+            HttpSession session = (HttpSession)      facesContext.getExternalContext().getSession(true);  //added
+            session.setAttribute("CURRENT_RECIPE", current.getRecipeid()); //added
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RecipeCreated"));
             return prepareCreate();
         } catch (Exception e) {

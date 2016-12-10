@@ -102,6 +102,11 @@ public class UserController implements Serializable {
         return "Edit";
     }
     
+    public String prepareEditProfile(User user) {
+        current = user;
+        return "edit";
+    }
+    
     public String prepareChangePassword(User user) {
         current = user;
         return "changepassword";
@@ -116,6 +121,17 @@ public class UserController implements Serializable {
             getFacade().edit(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("UserUpdated"));
             return "View";
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+    }
+    
+    public String editProfile() {
+        try {
+            getFacade().edit(current);
+            JsfUtil.addSuccessMessage("Your profile was successfully updated");
+            return "index";
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
             return null;

@@ -27,7 +27,7 @@
     <h:body>
         <header id="top">
             <div class="top-left">
-                <h:link value="Freshipes" outcome="faces/index" class="siteLogo" />
+                <h:link value="Freshipes" outcome="/index" class="siteLogo" />
             </div>
             <div class="top-center">
                 <h:inputText a:placeholder="Find the perfect recipe for every meal!">
@@ -90,7 +90,7 @@
                     ·
                     <h:link value="Friends" outcome="/friends" />
                     <h:outputText value =" · " rendered="#{userSessionBean.loggedIn}" />
-                    <h:link value="Create a Recipe" outcome="/member/create" rendered="#{userSessionBean.loggedIn}" />
+                    <h:link value="Create a Recipe" outcome="/member/createrecipe" rendered="#{userSessionBean.loggedIn}" />
                     ·
                     <h:link value="Profile" outcome="/member/index" rendered="#{userSessionBean.loggedIn}" />
                     <h:link value="Join" outcome="/join" rendered="#{!userSessionBean.loggedIn}" />
