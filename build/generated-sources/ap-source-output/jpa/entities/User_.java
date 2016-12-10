@@ -9,11 +9,7 @@ import jpa.entities.Friend;
 import jpa.entities.Recipe;
 import jpa.entities.Usereview;
 
-<<<<<<< HEAD
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-08T19:39:05")
-=======
-@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-10T11:33:47")
->>>>>>> greg-branch
+@Generated(value="EclipseLink-2.5.2.v20140319-rNA", date="2016-12-10T11:41:25")
 @StaticMetamodel(User.class)
 public class User_ { 
 

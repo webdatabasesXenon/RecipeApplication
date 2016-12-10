@@ -18,12 +18,12 @@
             <ui:define name="content">
               Home Page Content
               <h:form>
-<<<<<<< HEAD
+
                     
                   <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}"  >
                       <f:param name="theId" value="3" />  
                 </h:commandButton>
-=======
+
                   
                   <p:dataGrid  var="image" value="#{imageController.items}" columns="3" paginator="true" rows="9">
         <f:facet name="header">
@@ -47,7 +47,7 @@
                 </h:commandButton>
                           </p:panel>
                   </p:dataGrid>
->>>>>>> greg-branch
+
               </h:form>
               <h:form>
                   <h:commandButton value="chicken" action ="#{recipeController.getRecipeBySearch()}"/>
