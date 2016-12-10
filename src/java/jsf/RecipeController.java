@@ -33,6 +33,17 @@ public class RecipeController implements Serializable {
     private PaginationHelper pagination;
     private int selectedItemIndex;
     private Integer theId=-1;
+    private String searchString=null;
+
+    public String getSearchString() {
+        System.out.println("jsf.RecipeController.getSearchString() " + searchString);
+        return searchString;
+    }
+
+    public void setSearchString(String searchString) {
+        this.searchString = searchString;
+        System.out.println("jsf.RecipeController.getSearchString() " + searchString);
+    }
 
     public Integer getTheId() {
         System.out.println("get : theId "+theId);
@@ -58,6 +69,28 @@ public class RecipeController implements Serializable {
             selectedItemIndex = -1;
         }
         return current;
+    }
+    public String test2(){
+        return "index";
+    }
+    public List<Recipe> test(){
+        String search;
+        List<Recipe> results;
+        System.out.println("Im clicked");
+       
+        if(searchString!=null&& !searchString.isEmpty()){
+            results=getRecipeBySearch(searchString);
+            searchString=null;
+            return results;
+            
+        }
+        results= ejbFacade.findAll();
+        System.out.println("jsf.RecipeController.test() "+"Im here in test and search was null so i find it all");
+        for(Recipe r:results)
+            System.out.println(r.getRecipeid()+" "+r.getDescription());
+        
+        searchString=null;
+        return results;
     }
 
     private RecipeFacade getFacade() {
@@ -136,8 +169,8 @@ public class RecipeController implements Serializable {
         return "List";
     }
     
-    public List<Recipe> getRecipeBySearch(/*String search*/){
-        String search = "chicken veal and bread";
+    public List<Recipe> getRecipeBySearch(String search){
+        
         String temp="";
         String[] keywords = search.split(" ");
         
@@ -235,6 +268,9 @@ public class RecipeController implements Serializable {
 
     public Recipe getRecipe(java.lang.Integer id) {
         return ejbFacade.find(id);
+    }
+    public List<Recipe> getItemList(){
+        return ejbFacade.findAll();
     }
 
     @FacesConverter(forClass = Recipe.class)

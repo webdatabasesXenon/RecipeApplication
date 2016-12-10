@@ -30,10 +30,18 @@
                 <h:link value="Freshipes" outcome="faces/index" class="siteLogo" />
             </div>
             <div class="top-center">
-                <h:inputText a:placeholder="Find the perfect recipe for every meal!">
+                <h:form styleClass="top-center">
+                    <h:inputText id="searchString" a:placeholder="Find the perfect recipe for every meal!" value="#{recipeController.searchString}" >
                     
-                </h:inputText>
-                <i class="fa fa-search" aria-hidden="true"></i>
+                    </h:inputText>
+                    <h:commandLink action="#{recipeController.test2()}" >
+                        <i class="fa fa-search" aria-hidden="true" ></i>
+                        <!--<f:param name="searchString" value="" />-->  
+                        
+                    </h:commandLink>
+                    
+                </h:form>
+                
             </div>
             <h:form>
             <div class="top-right">
