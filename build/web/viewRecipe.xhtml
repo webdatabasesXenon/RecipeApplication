@@ -22,18 +22,32 @@
         </script>
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
+<<<<<<< HEAD
                 
                 <h:outputText style="font-size: 20px ;font-weight: bold; padding: 5px" value="#{recipeController.getRecipe(recipeController.theId).recipename}">
                 </h:outputText>
                 <br></br>
                 <h:graphicImage value="resources/images/sofa.png" />
+=======
+                <f:metadata>
+                        <f:viewParam name="id" value="#{myBean.id}" />
+                </f:metadata>
+                <h:outputText style="font-size: 20px ;font-weight: bold; padding: 5px" value="#{recipeController.getRecipe(recipeController.theId).recipename}">
+                </h:outputText>
+                <br></br>
+                <h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(recipeController.theId)}"  width="33%"/> 
+>>>>>>> greg-branch
                 <h:form>
                     <p:growl id="msgs" showDetail="true" />
 
                     <p:fieldset legend="Description" toggleable="true" style="margin-bottom:20px">
                         <h:panelGrid columns="2" cellpadding="5">
                             <!--<p:graphicImage name="demo/images/godfather/godfather1.jpg" />-->
+<<<<<<< HEAD
                             <h:outputText value="#{recipeController.getRecipe(recipeController.theId).description}"/>
+=======
+                            <h:outputText value="#{recipeController.getRecipe(recipeController.theId).description}" />
+>>>>>>> greg-branch
                         </h:panelGrid>
                     </p:fieldset>
 

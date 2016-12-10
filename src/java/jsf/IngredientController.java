@@ -112,6 +112,10 @@ public class IngredientController implements Serializable {
             return null;
         }
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> greg-branch
     public List<Ingredient> getByRecipeId(Integer ID){
         
         List <Ingredient> results= this.ejbFacade.getEntityManager().createNamedQuery("Ingredient.findByRecipeid").

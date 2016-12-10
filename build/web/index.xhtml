@@ -18,10 +18,36 @@
             <ui:define name="content">
               Home Page Content
               <h:form>
+<<<<<<< HEAD
                     
                   <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}"  >
                       <f:param name="theId" value="3" />  
                 </h:commandButton>
+=======
+                  
+                  <p:dataGrid  var="image" value="#{imageController.items}" columns="3" paginator="true" rows="9">
+        <f:facet name="header">
+            Recipes
+        </f:facet>
+ 
+                      <p:panel header="" style="text-align:center">
+                          
+            <h:panelGrid columns="1" style="width:100%" styleClass="tile">
+                <h:outputText value="#{image.recipe.recipename}"/>
+                
+               
+                <img src="#{PathBean.picPath}#{image.path}" width="33%"></img>
+         
+                  <h:outputText value="#{image.recipe.description}"/>
+            </h:panelGrid>
+                      
+       
+                  <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}"  >
+                      <f:param name="theId" value="#{image.recipe.recipeid}" />  
+                </h:commandButton>
+                          </p:panel>
+                  </p:dataGrid>
+>>>>>>> greg-branch
               </h:form>
               <h:form>
                   <h:commandButton value="chicken" action ="#{recipeController.getRecipeBySearch()}"/>
@@ -31,4 +57,11 @@
             </ui:define>
         </ui:composition>
     </body>
+    <script>
+        fuction myfunction()
+        {
+            var fullpath="resources/Pictures/";
+            return fullpath;
+        }
+        </script>
 </html>
