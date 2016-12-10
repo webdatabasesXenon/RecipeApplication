@@ -6,6 +6,7 @@ import jsf.util.PaginationHelper;
 import jpa.session.ImageFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -62,7 +63,14 @@ public class ImageController implements Serializable {
         }
         return pagination;
     }
-
+    public String getFirstPath(Integer recipeID){
+        List <Image> results= this.ejbFacade.getEntityManager().createNamedQuery("Image.findByRecipeid").setParameter("recipeid", recipeID).getResultList();
+        if(results!=null)
+            return results.get(0).getPath();
+        else
+            return "";
+        
+    }
     public String prepareList() {
         recreateModel();
         return "List";
