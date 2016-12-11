@@ -1,11 +1,17 @@
 package jsf;
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 import jpa.entities.Image;
 import jsf.util.JsfUtil;
 import jsf.util.PaginationHelper;
 import jpa.session.ImageFacade;
 
 import java.io.Serializable;
+import java.util.List;
 import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
@@ -17,6 +23,9 @@ import javax.faces.convert.FacesConverter;
 import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
+import javax.servlet.http.HttpSession;
+import jpa.entities.ImagePK;
+import org.primefaces.event.FileUploadEvent;
 
 @Named("imageController")
 @SessionScoped
@@ -62,7 +71,21 @@ public class ImageController implements Serializable {
         }
         return pagination;
     }
-
+    public String getFirstPath(Integer recipeID){
+        try{
+        List <Image> results= this.ejbFacade.getEntityManager().createNamedQuery("Image.findByRecipeid").setParameter("recipeid", recipeID).getResultList();
+        System.out.println("jsf.ImageController.getFirstPath() "+results.get(0).getPath().toString());
+        if(results!=null)
+            return results.get(0).getPath();
+        else
+            return "";
+        }
+        catch (Exception e){
+            e.printStackTrace();
+            return "";
+        }
+        
+    }
     public String prepareList() {
         recreateModel();
         return "List";
@@ -83,12 +106,43 @@ public class ImageController implements Serializable {
 
     public String create() {
         try {
-            current.getImagePK().setRecipeid(current.getRecipe().getRecipeid());
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+            Integer recipeid = (Integer) session.getAttribute("CURRENT_RECIPE");
+            ImagePK temp= new ImagePK(1,recipeid);
+//            current.getImagePK().setImageno(1);
+//            current.getImagePK().setRecipeid(recipeid);
+            current= new Image(temp);
+            System.out.println("jsf.ImageController.create()\n"/*+ this.getSelected().getPath()*/);
+            //int location =this.getSelected().getPath().toString().lastIndexOf(".");
+            //String temp2= this.getSelected().getPath().toString().substring(location);
+            current.setPath("1-"+recipeid.toString()+".jpeg");
             getFacade().create(current);
             JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ImageCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            e.printStackTrace();
+            return null;
+        }
+       
+    }
+    public String create(String ending) {
+        try {
+            FacesContext facesContext = FacesContext.getCurrentInstance();
+            HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+            Integer recipeid = (Integer) session.getAttribute("CURRENT_RECIPE");
+            ImagePK temp= new ImagePK(1,recipeid);
+            current= new Image(temp);
+            System.out.println("jsf.ImageController.create()\n"/*+ this.getSelected().getPath()*/);
+            
+            current.setPath("1-"+recipeid.toString()+ending);
+            getFacade().create(current);
+            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("ImageCreated"));
+            return prepareCreate();
+        } catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            e.printStackTrace();
             return null;
         }
     }
@@ -162,6 +216,29 @@ public class ImageController implements Serializable {
             items = getPagination().createPageDataModel();
         }
         return items;
+    }
+    public void fileUpload(FileUploadEvent event)throws IOException{
+        String path="C:\\Users\\Greg\\Desktop\\UNH\\Fall2016\\Recipe-Master-Safety\\RecipeApplication\\web\\resources\\Pictures\\";
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
+        String name = event.getFile().getFileName();
+        int location =name.lastIndexOf(".");
+        String temp2= name.substring(location);
+        File file = new File(path+"1-"+session.getAttribute("CURRENT_RECIPE")+temp2);
+        this.create(temp2);
+        System.out.println("jsf.ImageController.fileUpload()\npath :"+path+"\nname: "+name);
+        InputStream is =event.getFile().getInputstream();
+        OutputStream os = new FileOutputStream(file);
+        
+        byte buffer[]=new byte[1024];
+        int len;
+        
+        while((len=is.read(buffer))>0)
+            os.write(buffer, 0, len);
+        is.close();
+        os.close();
+        
+        
     }
 
     private void recreateModel() {

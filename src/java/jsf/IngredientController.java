@@ -9,6 +9,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
+
+ import javax.servlet.http.HttpSession;
+ import javax.faces.context.FacesContext;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
@@ -20,6 +23,7 @@ import javax.faces.model.DataModel;
 import javax.faces.model.ListDataModel;
 import javax.faces.model.SelectItem;
 import javax.servlet.http.HttpSession;
+import jpa.entities.IngredientPK;
 
 @Named("ingredientController")
 @SessionScoped
@@ -85,16 +89,19 @@ public class IngredientController implements Serializable {
     }
 
     public String create() {
+        System.out.println("jsf.IngredientController.create() ");
         try {
             FacesContext facesContext = FacesContext.getCurrentInstance();  //added
             HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);  //added
             Integer recipeid = (Integer) session.getAttribute("CURRENT_RECIPE");  //added
-            current.getIngredientPK().setRecipeid(recipeid);   //changed
+            current.getIngredientPK().setRecipeid(recipeid);
+            
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("IngredientCreated"));
+            //JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("IngredientCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            e.printStackTrace();
             return null;
         }
     }

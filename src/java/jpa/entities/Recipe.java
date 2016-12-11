@@ -82,6 +82,7 @@ public class Recipe implements Serializable {
     @JoinColumn(name = "userid", referencedColumnName = "userid")
     @ManyToOne
     private User userid;
+  
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")
     private Collection<Recipesteps> recipestepsCollection;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "recipe")

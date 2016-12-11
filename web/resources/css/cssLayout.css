@@ -73,6 +73,18 @@
     width: 33.33%;
 }
 
+.col1 {
+    width: 33%;
+}
+
+.col2 {
+    width: 33%;
+}
+
+.col3 {
+    width: 33%;
+}
+
 @media screen and (max-width:680px) {
     #top {
         display: none;

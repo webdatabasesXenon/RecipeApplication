@@ -9,7 +9,7 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     
     <h:head>
-        <title>Facelet Title</title>
+        <title>Create Recipe</title>
     </h:head>
     <body>
         <ui:composition template="../templates/mainTemplate.xhtml">           
@@ -26,9 +26,6 @@
                         <h:outputLabel value="#{bundle.CreateRecipeLabel_description}" for="Description"/>
                         <p:inputTextarea id="description" value="#{recipeController.selected.description}" title="#{bundle.CreateRecipeTitle_description}" required="true" requiredMessage="Please enter a recipe description" style="width: 350px;"/>
                     
-                        <h:outputLabel value="#{bundle.CreateRecipeLabel_userid}" for="UserID"/>
-                        <p:inputText id="userid" value="#{recipeController.selected.userid}" title="#{bundle.CreateRecipeTitle_userid}" size="50" />
-             
                         <h:commandButton action="#{recipeController.create}" value="#{bundle.CreateRecipeSaveLink}" styleClass="button"/>
                     </h:panelGrid>
                     </h:form>

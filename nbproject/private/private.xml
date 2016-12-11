@@ -4,20 +4,28 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/changepassword.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jpa/entities/Recipe.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/logouterror.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/viewRecipe.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/contact.xhtml</file>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/IngredientController.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/resources/css/cssLayout.css</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/createrecipe.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/index.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/util/CreateRecipeBean.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/RecipeController.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/util/ViewRecipeBean.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/RecipestepsController.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/edit.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/create2.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/create.xhtml</file>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/templates/mainTemplate.xhtml</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jpa/session/AbstractFacade.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/join.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/login.xhtml</file>
             <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/ImageController.java</file>
-            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/util/UserSessionBean.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/about.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/recipes.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/create2.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/edit.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/loginerror.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/member/index.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/util/ViewRecipeBean.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/index.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/RecipestepsController.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jsf/RecipeController.java</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/web/friends.xhtml</file>
+            <file>file:/C:/Users/Greg/Desktop/UNH/Fall2016/Recipe-Master-Safety/RecipeApplication/src/java/jpa/entities/Recipesteps.java</file>
         </group>
     </open-files>
 </project-private>

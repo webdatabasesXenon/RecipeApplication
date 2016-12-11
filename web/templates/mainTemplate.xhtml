@@ -18,9 +18,6 @@
         <h:outputStylesheet name="css/cssLayout.css"/>
         <h:outputStylesheet name="font-awesome-4.7.0/css/font-awesome.min.css"/>
         <h:outputScript name="js/freshipes.js" />
-        <!-- <h:outputStylesheet name="bootstrap/css/bootstrap.css" />
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js" />
-        <h:outputScript name="bootstrap/js/bootstrap.js" /> -->
         <title>Facelets Template</title>
     </h:head>
 
@@ -30,10 +27,17 @@
                 <h:link value="Freshipes" outcome="/index" class="siteLogo" />
             </div>
             <div class="top-center">
-                <h:inputText a:placeholder="Find the perfect recipe for every meal!">
+                <h:form styleClass="top-center">
+                    <h:inputText id="searchString" a:placeholder="Find the perfect recipe for every meal!" value="#{recipeController.searchString}" >
                     
-                </h:inputText>
-                <i class="fa fa-search" aria-hidden="true"></i>
+                    </h:inputText>
+                    <h:commandLink action="#{recipeController.test2()}" >
+                        <i class="fa fa-search" aria-hidden="true" ></i>
+                        <!--<f:param name="searchString" value="" />-->  
+                        
+                    </h:commandLink>
+                    
+                </h:form>
             </div>
             <h:form>
             <div class="top-right">
@@ -61,8 +65,7 @@
 
         <nav>
             <ul class="topnav" id="myTopnav">
-                <li><h:link value="FIND RECIPES" outcome="/recipes" /></li>
-                <li><h:link value="FIND FRIENDS" outcome="/friends" /></li>                
+                <li><h:link value="FIND RECIPES" outcome="/recipes" /></li>               
                 <li><h:link value="CREATE A RECIPE" outcome="/member/create" rendered="#{userSessionBean.loggedIn}" /></li>
                 <li><h:link value="JOIN NOW FOR FREE" outcome="/join" rendered="#{!userSessionBean.loggedIn}" /></li>
                 <li><h:link value="ABOUT FRESHIPES" outcome="/about" /></li>
@@ -88,9 +91,8 @@
                     ·
                     <h:link value="Recipes" outcome="/recipes" />
                     ·
-                    <h:link value="Friends" outcome="/friends" />
                     <h:outputText value =" · " rendered="#{userSessionBean.loggedIn}" />
-                    <h:link value="Create a Recipe" outcome="/member/createrecipe" rendered="#{userSessionBean.loggedIn}" />
+                    <h:link value="Create a Recipe" outcome="/member/create" rendered="#{userSessionBean.loggedIn}" />
                     ·
                     <h:link value="Profile" outcome="/member/index" rendered="#{userSessionBean.loggedIn}" />
                     <h:link value="Join" outcome="/join" rendered="#{!userSessionBean.loggedIn}" />
@@ -98,8 +100,6 @@
                     <h:link value="About Us" outcome="/about" />
                     ·
                     <h:link value="Contact Us" outcome="/contact" />
-                    ·
-                    <h:link value="SiteMap" outcome="/sitemap" />
 
             </p>
 

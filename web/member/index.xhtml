@@ -9,7 +9,7 @@
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
 
     <h:head>
-        <title>Facelet Title</title>
+        <title>Your Profile</title>
     </h:head>
     <body>
         <ui:composition template="../templates/mainTemplate.xhtml">           
@@ -25,21 +25,16 @@
                 </h:form>
                 <br></br>
                 <br></br>
-                <h:outputText value="Your Friends" styleClass="heading" />
-                    <h:dataTable value="#{userSessionBean.connectedUsers}" var="friend" cellpadding="2">
-                        <h:column>#{friend.username}</h:column>
-                    </h:dataTable>
-                <br></br>
                 <h:outputText value="Your Recipes" styleClass="heading" />
-                    <h:dataTable value="#{userSessionBean.createdRecipes}" var="created" cellpadding="2">
-                        <h:column>image</h:column>
+                    <h:dataTable value="#{userSessionBean.createdRecipes}" var="created" cellpadding="15" style="column-width: 300px;" >
+                        <h:column><h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(created.recipeid)}"  width="30%"/></h:column>
                         <h:column>#{created.recipename}</h:column>
                         <h:column>#{created.description}</h:column>
                     </h:dataTable>
                 <br></br>
                 <h:outputText value="Saved Recipes" styleClass="heading" />
-                    <h:dataTable value="#{userSessionBean.favoriteRecipes}" var="favorite" cellpadding="2">
-                        <h:column>image</h:column>
+                    <h:dataTable value="#{userSessionBean.favoriteRecipes}" var="favorite" cellpadding="15" style="column-width: 300px;" >
+                        <h:column><h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(favorite.recipeid)}"  width="30%"/></h:column>
                         <h:column>#{favorite.recipename}</h:column>
                         <h:column>#{favorite.description}</h:column>
                     </h:dataTable> 

@@ -8,7 +8,7 @@
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Freshipes</title>
     </h:head>
     <body>
         <script type="text/javascript">
@@ -22,37 +22,38 @@
         </script>
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
-                <f:metadata>
-                        <f:viewParam name="id" value="#{myBean.id}" />
-                </f:metadata>
+
+               
                 <h:outputText style="font-size: 20px ;font-weight: bold; padding: 5px" value="#{recipeController.getRecipe(recipeController.theId).recipename}">
                 </h:outputText>
                 <br></br>
-                <h:graphicImage value="resources/images/sofa.png" />
+                <h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(recipeController.theId)}"  width="33%"/> 
+
                 <h:form>
                     <p:growl id="msgs" showDetail="true" />
 
                     <p:fieldset legend="Description" toggleable="true" style="margin-bottom:20px">
                         <h:panelGrid columns="2" cellpadding="5">
-                            <!--<p:graphicImage name="demo/images/godfather/godfather1.jpg" />-->
+
                             <h:outputText value="#{recipeController.getRecipe(recipeController.theId).description}"/>
+
                         </h:panelGrid>
                     </p:fieldset>
 
                     <p:fieldset legend="Ingredients" toggleable="true" toggleSpeed="500">
                         <p:ajax event="toggle" listener="#{fieldsetView.handleToggle}" update="msgs" />
                         <h:panelGrid columns="2" cellpadding="5">
-                            <!--<p:graphicImage name="demo/images/godfather/godfather2.jpg" />-->
+                            
                             <h:dataTable value="#{ingredientController.getByRecipeId(recipeController.theId)}" var="m">
-                                <h:column>
+                                <h:column headerClass="col1">
                                     <f:facet name="header">Quantity</f:facet>
                                         #{m.quantity}
                                  </h:column>
-                                <h:column>
+                                <h:column headerClass="col2">
                                     <f:facet name="header">Unit</f:facet>
                                         #{m.unit}
                                  </h:column>
-                                <h:column>
+                                <h:column headerClass="col3">
                                     <f:facet name="header">Ingredient</f:facet>
                                         #{m.name}
                                  </h:column>

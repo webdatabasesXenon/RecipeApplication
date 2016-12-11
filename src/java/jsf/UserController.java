@@ -81,6 +81,7 @@ public class UserController implements Serializable {
         return "login";
     }
 
+
     public String create() {
         try { 
             String pwd = current.getPassword();

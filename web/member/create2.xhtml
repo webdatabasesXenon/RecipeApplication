@@ -7,18 +7,40 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
       xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{viewRecipeBean.getDetails()}" />
+    </f:metadata>
     
     <h:head>
-        <title>Facelet Title</title>
+        <title>Create Recipe</title>
     </h:head>
     <body>
         <ui:composition template="../templates/mainTemplate.xhtml">           
             <ui:define name="content">
                 
-                <h:outputText value="#{sessionScope.CURRENT_RECIPE}" />
-               
+                
+                <h:outputText value="#{recipeController.getRecipe(sessionScope.CURRENT_RECIPE).getRecipename()}" styleClass="heading"/>
+                <br/>
+                <h:outputText value="#{recipeController.getRecipe(sessionScope.CURRENT_RECIPE).getDescription()}" />
+                <br/>
+                <br/>
                 <h:outputText value="#{bundle.CreateIngredientTitle}" styleClass="heading" />
                 <br/>
+                <h:dataTable value="#{ingredientController.getByRecipeId(sessionScope.CURRENT_RECIPE)}" var="m" cellpadding="10" >
+                    <h:column>
+                                 <f:facet name="header">Quantity</f:facet>
+                                        #{m.quantity}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Unit</f:facet>
+                                        #{m.unit}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Ingredient</f:facet>
+                                        #{m.name}
+                                 </h:column>
+                
+                </h:dataTable>
                 <br/>
                 <h:form>
                     <h:messages errorStyle="color: red" infoStyle="color: green"/>
@@ -42,19 +64,42 @@
                     <br/>
                     <br/>   
                  <h:outputText value="#{bundle.CreateRecipestepsTitle}" styleClass="heading" />
+                 <br/>
+                 <h:dataTable value="#{recipestepsController.getRecipeStepsById(sessionScope.CURRENT_RECIPE)}" var="m" cellpadding="10">
+                                <h:column>
+                                    <f:facet name="header">Step</f:facet>
+                                        #{m.number}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Instruction</f:facet>
+                                        #{m.text}
+                                 </h:column>
+                                 </h:dataTable>
                  <h:form>
                     <h:messages errorStyle="color: red" infoStyle="color: green"/>
                     <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
-                           <h:outputLabel value="#{bundle.CreateRecipestepsLabel_number}" for="Number"/>
-                           <p:inputText id="number" value="#{recipestepsController.selected.number}"  title="#{bundle.CreateRecipestepsTitle_number}" required="true" requiredMessage="Please enter the step number" size="50" />
-                    
                            <h:outputLabel value="#{bundle.CreateRecipestepsLabel_text}" for="text"/>
-                           <p:inputText id="text" value="#{recipestepsController.selected.text}"  title="#{bundle.CreateRecipestepsTitle_text}" required="true" requiredMessage="Please enter the step procesdure" size="50" />
+                           <p:inputText id="text" value="#{recipestepsController.selected.text}"  title="#{bundle.CreateRecipestepsTitle_text}" required="true" requiredMessage="Please enter the step procedure" size="50" />
 
                             <h:commandButton value="#{bundle.CreateRecipestepsSaveLink}" action="#{recipestepsController.create}" styleClass="button"/>
                        
                     </h:panelGrid>
                 </h:form>
+                 <br/>
+                 <br/>
+                 <h:outputText value="#{bundle.CreateImageTitle}" styleClass="heading" />
+                 <h:form>
+                       <h:messages errorStyle="color: red" infoStyle="color: green"/>
+                       <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                       
+                          <h:outputLabel value="#{bundle.CreateImageLabel_path}" for="Path"/>  
+                          <p:fileUpload  fileUploadListener="#{imageController.fileUpload}" multiple="false" />
+ 
+                       
+
+                       </h:panelGrid>
+                 </h:form>
+
 
             </ui:define>
         </ui:composition>

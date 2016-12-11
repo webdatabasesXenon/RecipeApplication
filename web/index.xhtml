@@ -7,7 +7,7 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
     <h:head>
-        <title>Facelet Title</title>
+        <title>Freshipies</title>
     </h:head>
     <f:metadata>
         <f:viewParam name="theRecipeId" value="3"/>
@@ -16,37 +16,40 @@
     <body>
         <ui:composition template="templates/mainTemplate.xhtml">           
             <ui:define name="content">
-              Home Page Content
-              <h:form>
+             <h:form>
+                  <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}" rendered="false"  >
+                      <f:param name="theId" value="3" />  
+                </h:commandButton>
+
                   
-                  <p:dataGrid  var="image" value="#{imageController.items}" columns="3" paginator="true" rows="9">
-        <f:facet name="header">
-            Recipes
-        </f:facet>
+                  <p:dataGrid  var="r" value="#{recipeController.test()}" columns="3" paginator="false" rows="9" styleClass="tile">
+            <f:facet name="header">
+                Recipes
+            </f:facet>
  
-                      <p:panel header="" style="text-align:center">
+            <p:panel header="#{r.recipename}" style="text-align:center;" >
                           
-            <h:panelGrid columns="1" style="width:100%" styleClass="tile">
-                <h:outputText value="#{image.recipe.recipename}"/>
+            <h:panelGrid columns="1"  styleClass="tile" >
+                <h:outputText value="#{r.recipename}"/>
                 
                
-                <img src="#{PathBean.picPath}#{image.path}" width="33%"></img>
+                <h:commandLink action="#{recipeController.bringMeHere()}">
+                    <h:graphicImage  url="#{PathBean.picPath}#{imageController.getFirstPath(r.recipeid)}"  width="33%" />
+                    <f:param name="theId" value="#{r.recipeid}" /> 
+                    
+               </h:commandLink>
          
-                  <h:outputText value="#{image.recipe.description}"/>
+                <h:outputText value="#{r.description}"/>
             </h:panelGrid>
                       
        
-                  <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}"  >
-                      <f:param name="theId" value="#{image.recipe.recipeid}" />  
+                <h:commandButton id="submit" value="go to view recipe" action="#{recipeController.bringMeHere()}" rendered="false" >
+                      <f:param name="theId" value="#{r.recipeid}" />  
                 </h:commandButton>
-                          </p:panel>
-                  </p:dataGrid>
-              </h:form>
-              <h:form>
-                  <h:commandButton value="chicken" action ="#{recipeController.getRecipeBySearch()}"/>
-                  
-          
-                </h:form>
+            </p:panel>
+        </p:dataGrid>
+
+        </h:form>
             </ui:define>
         </ui:composition>
     </body>

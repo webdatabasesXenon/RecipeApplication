@@ -95,11 +95,14 @@ public class RecipestepsController implements Serializable {
             FacesContext facesContext = FacesContext.getCurrentInstance(); //added
             HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);  //added
            Integer recipeid = (Integer) session.getAttribute("CURRENT_RECIPE");  //added
-            current.getRecipestepsPK().setRecipeid(recipeid);   //changed
-
+           current.getRecipestepsPK().setRecipeid(recipeid);   //changed
+           
+           List<Recipesteps> stepCount = ejbFacade.getEntityManager().createNamedQuery("Recipesteps.findByRecipeid").setParameter("recipeid", recipeid).getResultList();
+           Integer count = stepCount.size() + 1;
+           current.setNumber(count);
             //current.getRecipestepsPK().setRecipeid(current.getRecipe().getRecipeid()); // preserved for safety
             getFacade().create(current);
-            JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RecipestepsCreated"));
+            //JsfUtil.addSuccessMessage(ResourceBundle.getBundle("/Bundle").getString("RecipestepsCreated"));
             return prepareCreate();
         } catch (Exception e) {
             JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));

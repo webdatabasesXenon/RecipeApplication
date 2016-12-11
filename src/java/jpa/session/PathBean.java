@@ -23,10 +23,11 @@ public class PathBean {
 
     @PostConstruct
     void init() {
-        picPath = "resources/Pictures/";
+        picPath = "/resources/Pictures/";
     }
 
     public String getPicPath() {
+        System.out.println("jpa.session.PathBean.getPicPath() "+picPath);
         return picPath;
     }
 

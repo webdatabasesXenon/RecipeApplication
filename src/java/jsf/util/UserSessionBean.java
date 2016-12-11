@@ -92,6 +92,10 @@ public class UserSessionBean implements Serializable {
                 List<User> results = this.ejbFacade.getEntityManager().createNamedQuery("User.findByUsername").setParameter("username", username).getResultList();
                 User singleResult = results.get(0);
                 
+                FacesContext facesContext = FacesContext.getCurrentInstance();
+                HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
+                session.setAttribute("USER_ID", singleResult.getUserid());
+                
                 this.user = singleResult;
                 this.loggedIn = true;
                 
