@@ -3,16 +3,17 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/session/UserFacade.java</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/session/AbstractFacade.java</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/util/UserSessionBean.java</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/UserController.java</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/web/member/index.xhtml</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/RecipeController.java</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/session/PathBean.java</file>
             <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/ImageController.java</file>
             <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/web/resources/css/cssLayout.css</file>
-            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/entities/User_.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/RecipeController.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/session/UserFacade.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/UserController.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/session/AbstractFacade.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/web/viewRecipe.xhtml</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/session/PathBean.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/web/member/index.xhtml</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jsf/util/UserSessionBean.java</file>
+            <file>file:/C:/Users/gsheehan/Documents/NB/RecipeApplication-Dec-11/RecipeApplication/src/java/jpa/entities/Recipe.java</file>
         </group>
     </open-files>
 </project-private>
