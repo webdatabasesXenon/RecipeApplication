@@ -78,7 +78,7 @@ public class ImageController implements Serializable {
         if(results!=null)
             return results.get(0).getPath();
         else
-            return "";
+            return null;
         }
         catch (Exception e){
             e.printStackTrace();
@@ -218,7 +218,8 @@ public class ImageController implements Serializable {
         return items;
     }
     public void fileUpload(FileUploadEvent event)throws IOException{
-        String path="C:\\Users\\Greg\\Desktop\\UNH\\Fall2016\\Recipe-Master-Safety\\RecipeApplication\\web\\resources\\Pictures\\";
+        //String path="C:\\Users\\Greg\\Desktop\\UNH\\Fall2016\\Recipe-Master-Safety\\RecipeApplication\\web\\resources\\Pictures\\";
+        String path = "C:\\Users\\gsheehan\\Documents\\NB\\RecipeApplication-Dec-11\\RecipeApplication\\web\\resources\\Pictures\\";
         FacesContext facesContext = FacesContext.getCurrentInstance();
         HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(false);
         String name = event.getFile().getFileName();

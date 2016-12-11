@@ -85,6 +85,14 @@
     width: 33%;
 }
 
+.recipeImageSmall {
+    width: 30%;
+}
+
+recipeDetail {
+    width: 70%;
+}
+
 @media screen and (max-width:680px) {
     #top {
         display: none;

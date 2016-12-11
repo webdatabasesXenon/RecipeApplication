@@ -26,18 +26,55 @@
                 <br></br>
                 <br></br>
                 <h:outputText value="Your Recipes" styleClass="heading" />
-                    <h:dataTable value="#{userSessionBean.createdRecipes}" var="created" cellpadding="15" style="column-width: 300px;" >
-                        <h:column><h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(created.recipeid)}"  width="30%"/></h:column>
-                        <h:column>#{created.recipename}</h:column>
-                        <h:column>#{created.description}</h:column>
-                    </h:dataTable>
+                <h:form> 
+		    <p:dataScroller value="#{userSessionBean.createdRecipes}" var="created" chunkSize="3">
+                    <f:facet name="header">
+                        Scroll Down to Load More
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="recipeImageSmall,recipeDetail">
+                        <p:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(created.recipeid)}" style="max-width: 50%" rendered="#{not empty imageController.getFirstPath(created.recipeid)}"/> 
+                        <p:graphicImage value="#{PathBean.picPath}blank.jpg" style="max-width: 50%" rendered="#{empty imageController.getFirstPath(created.recipeid)}"/> 
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Recipe Name:" />
+                                <h:outputText value="#{created.recipename}" style="font-weight: bold"/>
+
+                                <h:outputText value="Description:" />
+                                <h:outputText value="#{created.description}" style="font-weight: bold"/>
+                                
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
+		</h:form>
+                
                 <br></br>
+                
                 <h:outputText value="Saved Recipes" styleClass="heading" />
-                    <h:dataTable value="#{userSessionBean.favoriteRecipes}" var="favorite" cellpadding="15" style="column-width: 300px;" >
-                        <h:column><h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(favorite.recipeid)}"  width="30%"/></h:column>
-                        <h:column>#{favorite.recipename}</h:column>
-                        <h:column>#{favorite.description}</h:column>
-                    </h:dataTable> 
+                <h:form> 
+		    <p:dataScroller value="#{userSessionBean.favoriteRecipes}" var="favorite" chunkSize="3" >
+                    <f:facet name="header">
+                        Scroll Down to Load More
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="recipeImageSmall,recipeDetail">
+                        <p:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(favorite.recipeid)}" style="max-width: 50%" rendered="#{not empty imageController.getFirstPath(favorite.recipeid)}" /> 
+                        <p:graphicImage value="#{PathBean.picPath}blank.jpg" style="max-width: 50%" rendered="#{empty imageController.getFirstPath(favorite.recipeid)}"/> 
+                        
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Recipe Name:" />
+                                <h:outputText value="#{favorite.recipename}" style="font-weight: bold"/>
+
+                                <h:outputText value="Description:" />
+                                <h:outputText value="#{favorite.description}" style="font-weight: bold"/>
+                                
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
+		</h:form>
             </ui:define>
         </ui:composition>
     </body>

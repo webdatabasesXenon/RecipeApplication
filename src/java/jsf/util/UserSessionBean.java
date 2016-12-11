@@ -83,53 +83,70 @@ public class UserSessionBean implements Serializable {
     }
     
     public void checkState() {
-        
+       
+        String view = FacesContext.getCurrentInstance().getViewRoot().getViewId();
+       
         if(this.user == null) {
             String username = null;
             if(FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal() != null) {
                 username = (String) FacesContext.getCurrentInstance().getExternalContext().getUserPrincipal().toString();
-
+ 
                 List<User> results = this.ejbFacade.getEntityManager().createNamedQuery("User.findByUsername").setParameter("username", username).getResultList();
                 User singleResult = results.get(0);
+               
+                this.user = singleResult;
+                this.loggedIn = true;
                 
                 FacesContext facesContext = FacesContext.getCurrentInstance();
                 HttpSession session = (HttpSession) facesContext.getExternalContext().getSession(true);
                 session.setAttribute("USER_ID", singleResult.getUserid());
-                
-                this.user = singleResult;
-                this.loggedIn = true;
-                
-                List<Friend> friendResults = this.ejbFriendFacade.getEntityManager().createNamedQuery("Friend.findByUserid1").setParameter("userid1", this.user.getUserid()).getResultList();
-                ArrayList<Friend> friends = new ArrayList();               
-                for (Friend f: friendResults) {
-                    System.out.println("What is happening?");
-                    System.out.println(f.toString());
-                    friends.add(f);
-                }
-                
-                
-                for (Friend f: friends) {
-                    List<User> connected = this.ejbFacade.getEntityManager().createNamedQuery("User.findByUserid").setParameter("userid", f.getUser1().getUserid()).getResultList();
-                    User singleConnection = connected.get(0);
-                    connectedUsers.add(singleConnection);
-                }
-                
-                
-                List<Recipe> createdRecipeResults = this.ejbRecipeFacade.getEntityManager().createNamedQuery("Recipe.findByUserid").setParameter("userid", this.user).getResultList(); 
-                
-                for (Recipe r: createdRecipeResults) {
-                    createdRecipes.add(r);
-                }
-                
-                List<Recipe> favoriteRecipeResults = this.ejbRecipeFacade.getEntityManager().createNamedQuery("Recipe.findFavorites").setParameter("user", this.user).getResultList(); 
-                
-                for (Recipe r: favoriteRecipeResults) {
-                    favoriteRecipes.add(r);
-                }
-
+               
+                populateProfile();
+ 
             }
         }
+       
+        if(this.user != null && view.contains("/member/index.xhtml")) {
+            clearProfile();
+            populateProfile();
+        }
+       
         
+    }
+   
+    public void clearProfile() {
+        this.connectedUsers.clear();
+        this.createdRecipes.clear();
+        this.favoriteRecipes.clear();
+    }
+   
+    public void populateProfile() {
+       
+        List<Friend> friendResults = this.ejbFriendFacade.getEntityManager().createNamedQuery("Friend.findByUserid1").setParameter("userid1", this.user.getUserid()).getResultList();
+        ArrayList<Friend> friends = new ArrayList();              
+        for (Friend f: friendResults) {
+            friends.add(f);
+        }
+ 
+ 
+        for (Friend f: friends) {
+            List<User> connected = this.ejbFacade.getEntityManager().createNamedQuery("User.findByUserid").setParameter("userid", f.getUser1().getUserid()).getResultList();
+            User singleConnection = connected.get(0);
+            connectedUsers.add(singleConnection);
+        }
+ 
+ 
+        List<Recipe> createdRecipeResults = this.ejbRecipeFacade.getEntityManager().createNamedQuery("Recipe.findByUserid").setParameter("userid", this.user).getResultList();
+ 
+        for (Recipe r: createdRecipeResults) {
+            createdRecipes.add(r);
+        }
+ 
+        List<Recipe> favoriteRecipeResults = this.ejbRecipeFacade.getEntityManager().createNamedQuery("Recipe.findFavorites").setParameter("user", this.user).getResultList();
+ 
+        for (Recipe r: favoriteRecipeResults) {
+            favoriteRecipes.add(r);
+        }
     }
     
     public String getUserID() {

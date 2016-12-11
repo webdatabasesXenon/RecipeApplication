@@ -28,7 +28,16 @@
                 </h:outputText>
                 <br></br>
                 <h:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(recipeController.theId)}"  width="33%"/> 
-
+                <br></br>
+                <br></br>
+                <br></br>
+                <h:form rendered="#{userSessionBean.loggedIn}">
+                    <h:commandButton styleClass="button" value="+ Save This Recipe"/>
+                    <br></br>
+                    <br></br>
+                    <br></br>
+                </h:form>
+                
                 <h:form>
                     <p:growl id="msgs" showDetail="true" />
 
