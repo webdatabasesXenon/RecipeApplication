@@ -16,22 +16,30 @@
             <h:outputText value="#{bundle.CreateUserTitle}" styleClass="heading" />
             <h:form>
                 <h:messages errorStyle="color: red" infoStyle="color: green"/>
-                <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                <h:panelGrid columns="3" columnClasses="leftColumn, rightColumn" >
                     <h:outputLabel value="#{bundle.CreateUserLabel_username}" for="username" />
-                    <p:inputText id="username" value="#{userController.selected.username}" title="#{bundle.CreateUserTitle_username}" required="true" requiredMessage="Please enter a username" a:placeholder="Username" size="50" />
+                    <p:inputText id="username" value="#{userController.selected.username}" title="#{bundle.CreateUserTitle_username}" binding="#{userController.usernameInput}" required="true" requiredMessage="Please enter a username" a:placeholder="Username" size="50" >
+                        <p:ajax event="blur" listener="#{userController.checkUsername}" update="duplicateLogin" />
+                    </p:inputText>
+                    <p:message id="duplicateLogin" for="username" />
                     <h:outputLabel value="#{bundle.CreateUserLabel_email}" for="email" />
                     <p:inputText id="email" value="#{userController.selected.email}" title="#{bundle.CreateUserTitle_email}" required="true" requiredMessage="Please enter an e-mail address" a:placeholder="Email address" size="50" />
+                    <p:message for="email" />
                     <h:outputLabel value="#{bundle.CreateUserLabel_password}" for="password" />
                     <p:password id="password" value="#{userController.selected.password}" match="repeated_password" required="true" requiredMessage="Please enter a password" a:placeholder="Password" size="50" />
+                    <p:message for="password" />
                     <h:outputLabel value="#{bundle.CreateUserLabel_cpassword}" for="repeated_password" />
                     <p:password id="repeated_password" value="#{userController.selected.password}" required="true" requiredMessage="Please confirm the password" a:placeholder="Confirm Password" size="50" />
+                    <p:message for="repeated_password" />
                     <h:outputLabel value="#{bundle.CreateUserLabel_country}" for="country" />
                     <p:selectOneMenu id="country" value="#{userController.selected.country}" title="#{bundle.CreateUserTitle_country}"  requiredMessage="Please select a country">
                        <f:selectItems value="#{CountriesBean.countries}" />
                        <f:validateRequired />
                     </p:selectOneMenu>
+                    <p:message for="country" />
                     <h:outputLabel value="#{bundle.CreateUserLabel_zipcode}" for="zipcode" />
                     <p:inputText id="zipcode" value="#{userController.selected.zipcode}" title="#{bundle.CreateUserTitle_zipcode}" />
+                    <p:message for="zipcode" />
                     <h:outputLabel />
                     <h:commandButton action="#{userController.create}" value="#{bundle.CreateUserSaveLink}" styleClass="button" />
                 </h:panelGrid>

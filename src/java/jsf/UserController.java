@@ -11,6 +11,7 @@ import java.util.ResourceBundle;
 import javax.ejb.EJB;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
+import javax.faces.application.FacesMessage;
 import javax.faces.component.UIComponent;
 import javax.faces.context.FacesContext;
 import javax.faces.convert.Converter;
@@ -30,6 +31,7 @@ public class UserController implements Serializable {
     private jpa.session.UserFacade ejbFacade;
     private PaginationHelper pagination;
     private int selectedItemIndex;
+    private UIComponent usernameInput;
 
     public UserController() {
     }
@@ -83,7 +85,7 @@ public class UserController implements Serializable {
 
 
     public String create() {
-        try { 
+        try {
             String pwd = current.getPassword();
             HashedPasswordGenerator hpg = new HashedPasswordGenerator();
             String hpwd = hpg.sha256(pwd);
@@ -153,6 +155,26 @@ public class UserController implements Serializable {
             return null;
         }
     }
+    
+    public String checkUsername() {
+        try {
+            List<User> results = ejbFacade.getEntityManager().createNamedQuery("User.findByUsername").setParameter("username", this.current.getUsername()).getResultList();
+            
+            for(User u: results) {
+            }
+            
+            if(results.size() > 0) {
+                FacesContext context = FacesContext.getCurrentInstance();
+                context.addMessage(usernameInput.getClientId(), new FacesMessage(FacesMessage.SEVERITY_ERROR, "This username is already taken; please choose another", null));
+                return null;
+            }
+        }
+        catch (Exception e) {
+            JsfUtil.addErrorMessage(e, ResourceBundle.getBundle("/Bundle").getString("PersistenceErrorOccured"));
+            return null;
+        }
+        return null;
+    }
 
     public String destroy() {
         current = (User) getItems().getRowData();
@@ -199,6 +221,16 @@ public class UserController implements Serializable {
             current = getFacade().findRange(new int[]{selectedItemIndex, selectedItemIndex + 1}).get(0);
         }
     }
+
+    public UIComponent getUsernameInput() {
+        return usernameInput;
+    }
+
+    public void setUsernameInput(UIComponent usernameInput) {
+        this.usernameInput = usernameInput;
+    }
+    
+    
 
     public DataModel getItems() {
         if (items == null) {

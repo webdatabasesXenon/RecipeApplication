@@ -25,9 +25,9 @@
                 </h:form>
                 <br></br>
                 <br></br>
-                <h:outputText value="Your Recipes" styleClass="heading" />
-                <h:form> 
-		    <p:dataScroller value="#{userSessionBean.createdRecipes}" var="created" chunkSize="3">
+                <h:outputText value="Your Recipes" styleClass="heading" rendered="#{not empty userSessionBean.createdRecipes}"/>
+                <h:form rendered="#{not empty userSessionBean.createdRecipes}"> 
+		    <p:dataScroller value="#{userSessionBean.createdRecipes}" var="created" chunkSize="3" >
                     <f:facet name="header">
                         Scroll Down to Load More
                     </f:facet>
@@ -57,8 +57,8 @@
                 
                 <br></br>
                 
-                <h:outputText value="Saved Recipes" styleClass="heading" />
-                <h:form> 
+                <h:outputText value="Saved Recipes" styleClass="heading" rendered="#{not empty userSessionBean.favoriteRecipes}" />
+                <h:form rendered="#{not empty userSessionBean.favoriteRecipes}"> 
 		    <p:dataScroller value="#{userSessionBean.favoriteRecipes}" var="favorite" chunkSize="3" >
                     <f:facet name="header">
                         Scroll Down to Load More

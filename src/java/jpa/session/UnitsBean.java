@@ -61,6 +61,7 @@ public class UnitsBean {
         units.put("heads","heads");
         units.put("heart","heart");
         units.put("hearts","hearts");
+        units.put("individual","individual");
         units.put("jar","jar");
         units.put("jars","jars");
         units.put("kilogram","kilogram");
