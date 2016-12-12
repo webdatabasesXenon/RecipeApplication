@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    
+    <h:head>
+        <title>Create Recipe</title>
+    </h:head>
+    <body>
+        <ui:composition template="../templates/mainTemplate.xhtml">           
+            <ui:define name="content">
+               <h:outputText value="#{bundle.CreateRecipeTitle}" styleClass="heading" />
+                 <br/>
+                 <br/>
+                 <h:form>
+                    <h:messages errorStyle="color: red" infoStyle="color: green"/>
+                    <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                        <h:outputLabel value="#{bundle.CreateRecipeLabel_recipename}" for="RecipeName"/>
+                        <p:inputText id="name" value="#{recipeController.selected.recipename}"  title="#{bundle.CreateRecipeTitle_recipename}" required="true" requiredMessage="Please enter a recipe name" size="50" />
+                    
+                        <h:outputLabel value="#{bundle.CreateRecipeLabel_description}" for="Description"/>
+                        <p:inputTextarea id="description" value="#{recipeController.selected.description}" title="#{bundle.CreateRecipeTitle_description}" required="true" requiredMessage="Please enter a recipe description" style="width: 350px;"/>
+                    
+                        <h:commandButton action="#{recipeController.create}" value="#{bundle.CreateRecipeSaveLink}" styleClass="button"/>
+                    </h:panelGrid>
+                    </h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

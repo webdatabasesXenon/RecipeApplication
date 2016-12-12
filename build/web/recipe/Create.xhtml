@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.CreateRecipeTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_recipeid}" for="recipeid" />
+                    <h:inputText id="recipeid" value="#{recipeController.selected.recipeid}" title="#{bundle.CreateRecipeTitle_recipeid}" required="true" requiredMessage="#{bundle.CreateRecipeRequiredMessage_recipeid}"/>
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_recipename}" for="recipename" />
+                    <h:inputText id="recipename" value="#{recipeController.selected.recipename}" title="#{bundle.CreateRecipeTitle_recipename}" />
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_description}" for="description" />
+                    <h:inputText id="description" value="#{recipeController.selected.description}" title="#{bundle.CreateRecipeTitle_description}" />
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_visit}" for="visit" />
+                    <h:inputText id="visit" value="#{recipeController.selected.visit}" title="#{bundle.CreateRecipeTitle_visit}" />
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_review}" for="review" />
+                    <h:inputText id="review" value="#{recipeController.selected.review}" title="#{bundle.CreateRecipeTitle_review}" />
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_avgreview}" for="avgreview" />
+                    <h:inputText id="avgreview" value="#{recipeController.selected.avgreview}" title="#{bundle.CreateRecipeTitle_avgreview}" />
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_date}" for="date" />
+                    <h:inputText id="date" value="#{recipeController.selected.date}" title="#{bundle.CreateRecipeTitle_date}" >
+                        <f:convertDateTime pattern="MM/dd/yyyy" />
+                    </h:inputText>
+                    <h:outputLabel value="#{bundle.CreateRecipeLabel_userid}" for="userid" />
+                    <h:selectOneMenu id="userid" value="#{recipeController.selected.userid}" title="#{bundle.CreateRecipeTitle_userid}" >
+                        <f:selectItems value="#{userController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <br />
+                <h:commandLink action="#{recipeController.create}" value="#{bundle.CreateRecipeSaveLink}" />
+                <br />
+                <br />
+                <h:commandLink action="#{recipeController.prepareList}" value="#{bundle.CreateRecipeShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.CreateRecipeIndexLink}"/>
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

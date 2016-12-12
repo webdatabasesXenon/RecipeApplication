@@ -63,6 +63,11 @@ public class RecipeController implements Serializable {
        FacesContext fc = FacesContext.getCurrentInstance();
       Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
       theId =  Integer.parseInt(params.get("theId"));
+      current= getRecipe(theId);
+//        System.out.println("jsf.RecipeController.bringMeHere()\n"+current.getVisit());
+     current.setVisit((current.getVisit().intValue()+1));
+     ejbFacade.edit(current);
+     current=null;
       return "/viewRecipe";
     }
     public RecipeController() {

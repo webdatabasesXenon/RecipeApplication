@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+
+    <h:head>
+        <title>Your Profile</title>
+    </h:head>
+    <body>
+        <ui:composition template="../templates/mainTemplate.xhtml">           
+            <ui:define name="content">
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                </h:panelGroup>
+                <h:outputText value="#{userSessionBean.username}'s Profile" styleClass="heading" />
+                <br></br>
+                <br></br>
+                <h:form>
+                    <h:commandLink value="Edit Profile" action="#{userController.prepareEditProfile(userSessionBean.user)}" /> | <h:commandLink value="Change Password" action="#{userController.prepareChangePassword(userSessionBean.user)}" />
+                </h:form>
+                <br></br>
+                <br></br>
+                <h:outputText value="Your Recipes" styleClass="heading" rendered="#{not empty userSessionBean.createdRecipes}"/>
+                <h:form rendered="#{not empty userSessionBean.createdRecipes}"> 
+		    <p:dataScroller value="#{userSessionBean.createdRecipes}" var="created" chunkSize="3" >
+                    <f:facet name="header">
+                        Scroll Down to Load More
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="recipeImageSmall,recipeDetail" styleClass="profileScroller">
+                        <p:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(created.recipeid)}" style="max-width: 50%" rendered="#{not empty imageController.getFirstPath(created.recipeid)}"/> 
+                        <p:graphicImage value="#{PathBean.picPath}blank.jpg" style="max-width: 50%" rendered="#{empty imageController.getFirstPath(created.recipeid)}"/> 
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Recipe Name:" />
+                                <h:outputText value="#{created.recipename}" style="font-weight: bold"/>
+
+                                <h:outputText value="Description:" />
+                                <h:outputText value="#{created.description}" style="font-weight: bold"/>
+                                
+                                <h:outputText value="" />
+                                <h:commandLink value="View Recipe" action="#{recipeController.bringMeHere()}" >
+                                    <f:param name="theId" value="#{created.recipeid}" />  
+                                </h:commandLink>
+                                
+                            </h:panelGrid>
+                            
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
+		</h:form>
+                
+                <br></br>
+                
+                <h:outputText value="Saved Recipes" styleClass="heading" rendered="#{not empty userSessionBean.favoriteRecipes}" />
+                <h:form rendered="#{not empty userSessionBean.favoriteRecipes}"> 
+		    <p:dataScroller value="#{userSessionBean.favoriteRecipes}" var="favorite" chunkSize="3" >
+                    <f:facet name="header">
+                        Scroll Down to Load More
+                    </f:facet>
+
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="recipeImageSmall,recipeDetail">
+                        <p:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(favorite.recipeid)}" style="max-width: 50%" rendered="#{not empty imageController.getFirstPath(favorite.recipeid)}" /> 
+                        <p:graphicImage value="#{PathBean.picPath}blank.jpg" style="max-width: 50%" rendered="#{empty imageController.getFirstPath(favorite.recipeid)}"/> 
+                        
+                        <p:outputPanel>
+                            <h:panelGrid columns="2" cellpadding="5">
+                                <h:outputText value="Recipe Name:" />
+                                <h:outputText value="#{favorite.recipename}" style="font-weight: bold"/>
+
+                                <h:outputText value="Description:" />
+                                <h:outputText value="#{favorite.description}" style="font-weight: bold"/>
+                                
+                                <h:outputText value="" />
+                                <h:commandLink value="View Recipe" action="#{recipeController.bringMeHere()}" >
+                                    <f:param name="theId" value="#{favorite.recipeid}" />  
+                                </h:commandLink>
+                                
+                            </h:panelGrid>
+                        </p:outputPanel>
+                    </h:panelGrid>
+                </p:dataScroller>
+		</h:form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>

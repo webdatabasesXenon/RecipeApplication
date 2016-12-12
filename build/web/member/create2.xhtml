@@ -1,0 +1,108 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <f:metadata>
+        <f:event type="preRenderView" listener="#{viewRecipeBean.getDetails()}" />
+    </f:metadata>
+    
+    <h:head>
+        <title>Create Recipe</title>
+    </h:head>
+    <body>
+        <ui:composition template="../templates/mainTemplate.xhtml">           
+            <ui:define name="content">
+                
+                
+                <h:outputText value="#{recipeController.getRecipe(sessionScope.CURRENT_RECIPE).getRecipename()}" styleClass="heading"/>
+                <br/>
+                <h:outputText value="#{recipeController.getRecipe(sessionScope.CURRENT_RECIPE).getDescription()}" />
+                <br/>
+                <br/>
+                <h:outputText value="#{bundle.CreateIngredientTitle}" styleClass="heading" />
+                <br/>
+                <h:dataTable value="#{ingredientController.getByRecipeId(sessionScope.CURRENT_RECIPE)}" var="m" cellpadding="10" >
+                    <h:column>
+                                 <f:facet name="header">Quantity</f:facet>
+                                        #{m.quantity}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Unit</f:facet>
+                                        #{m.unit}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Ingredient</f:facet>
+                                        #{m.name}
+                                 </h:column>
+                
+                </h:dataTable>
+                <br/>
+                <h:form>
+                    <h:messages errorStyle="color: red" infoStyle="color: green"/>
+                    <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                         <h:outputLabel value="#{bundle.CreateIngredientLabel_name}" for="IngredientName"/>
+                         <p:inputText id="name" value="#{ingredientController.selected.name}"  title="#{bundle.CreateIngredientTitle_name}" required="true" requiredMessage="Please enter a ingredient name" size="50" />
+                    
+                         <h:outputLabel value="#{bundle.CreateIngredientLabel_quantity}" for="Quantity"/>
+                         <p:inputText id="quantity" value="#{ingredientController.selected.quantity}" title="#{bundle.CreateIngredientTitle_quantity}" required="true" requiredMessage="Please enter the quantity" size="50"/>
+                    
+                         <h:outputLabel value="#{bundle.CreateIngredientLabel_unit}" for="Unit"/>
+                         <p:selectOneMenu id="unit" value="#{ingredientController.selected.unit}" title="#{bundle.CreateIngredientTitle_unit}"  requiredMessage="Please select a unit" style="width: 340px;">
+                                 <f:selectItems value="#{UnitsBean.units}" /> 
+                                 <f:validateRequired />
+                         </p:selectOneMenu>
+          
+                         <h:commandButton action="#{ingredientController.create}" value="#{bundle.CreateIngredientSaveLink}" styleClass="button"/>
+                    </h:panelGrid>
+                    </h:form>    
+                    <br/>
+                    <br/>
+                    <br/>   
+                 <h:outputText value="#{bundle.CreateRecipestepsTitle}" styleClass="heading" />
+                 <br/>
+                 <h:dataTable value="#{recipestepsController.getRecipeStepsById(sessionScope.CURRENT_RECIPE)}" var="m" cellpadding="10">
+                                <h:column>
+                                    <f:facet name="header">Step</f:facet>
+                                        #{m.number}
+                                 </h:column>
+                                <h:column>
+                                    <f:facet name="header">Instruction</f:facet>
+                                        #{m.text}
+                                 </h:column>
+                                 </h:dataTable>
+                 <h:form>
+                    <h:messages errorStyle="color: red" infoStyle="color: green"/>
+                    <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                           <h:outputLabel value="#{bundle.CreateRecipestepsLabel_text}" for="text"/>
+                           <p:inputText id="text" value="#{recipestepsController.selected.text}"  title="#{bundle.CreateRecipestepsTitle_text}" required="true" requiredMessage="Please enter the step procedure" size="50" />
+
+                            <h:commandButton value="#{bundle.CreateRecipestepsSaveLink}" action="#{recipestepsController.create}" styleClass="button"/>
+                       
+                    </h:panelGrid>
+                </h:form>
+                 <br/>
+                 <br/>
+                 <h:outputText value="#{bundle.CreateImageTitle}" styleClass="heading" />
+                 <h:form>
+                       <h:messages errorStyle="color: red" infoStyle="color: green"/>
+                       <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                       
+                          <h:outputLabel value="#{bundle.CreateImageLabel_path}" for="Path"/>  
+                          <p:fileUpload  fileUploadListener="#{imageController.fileUpload}" multiple="false" />
+ 
+                       
+
+                       </h:panelGrid>
+                 </h:form>
+
+
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
+

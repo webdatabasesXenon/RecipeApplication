@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:composition template="/template.xhtml">
+        <ui:define name="title">
+            <h:outputText value="#{bundle.EditImageTitle}"></h:outputText>
+        </ui:define>
+        <ui:define name="body">
+            <h:panelGroup id="messagePanel" layout="block">
+                <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+            </h:panelGroup>
+            <h:form>
+                <h:panelGrid columns="2">
+                    <h:outputLabel value="#{bundle.EditImageLabel_imagePK_imageno}" for="imagePK_imageno" />
+                    <h:inputText id="imagePK_imageno" value="#{imageController.selected.imagePK.imageno}" title="#{bundle.EditImageTitle_imagePK_imageno}" required="true" requiredMessage="#{bundle.EditImageRequiredMessage_imagePK_imageno}"/>
+                    <h:outputLabel value="#{bundle.EditImageLabel_path}" for="path" />
+                    <h:inputText id="path" value="#{imageController.selected.path}" title="#{bundle.EditImageTitle_path}" />
+                    <h:outputLabel value="#{bundle.EditImageLabel_recipe}" for="recipe" />
+                    <h:selectOneMenu id="recipe" value="#{imageController.selected.recipe}" title="#{bundle.EditImageTitle_recipe}" required="true" requiredMessage="#{bundle.EditImageRequiredMessage_recipe}">
+                        <f:selectItems value="#{recipeController.itemsAvailableSelectOne}"/>
+                    </h:selectOneMenu>
+                </h:panelGrid>
+                <h:commandLink action="#{imageController.update}" value="#{bundle.EditImageSaveLink}"/>
+                <br />
+                <br />
+                <h:link outcome="View" value="#{bundle.EditImageViewLink}"/>
+                <br />
+                <h:commandLink action="#{imageController.prepareList}" value="#{bundle.EditImageShowAllLink}" immediate="true"/>
+                <br />
+                <br />
+                <h:link outcome="/index" value="#{bundle.EditImageIndexLink}" />
+            </h:form>
+        </ui:define>
+    </ui:composition>
+
+</html>

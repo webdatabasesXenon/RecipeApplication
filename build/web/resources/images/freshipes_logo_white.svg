@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 744.09448819 1052.3622047"
+   id="svg3716"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="freshipes_logo_white.svg"
+   inkscape:export-filename="C:\Users\Greg\Desktop\UNH\Fall2016\CSCI-6655-Web-App-Dev\freshipes_logo_white.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs3718" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.4"
+     inkscape:cx="-411.23734"
+     inkscape:cy="760.44603"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1536"
+     inkscape:window-height="803"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata3721">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3336"
+       style="font-style:normal;font-weight:normal;font-size:40px;line-height:125%;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       transform="translate(59.94562,68.491428)"><flowRegion
+         id="flowRegion3338"><rect
+           id="rect3340"
+           width="582.85712"
+           height="131.42857"
+           x="62.857143"
+           y="129.50507" /></flowRegion><flowPara
+         id="flowPara3342"
+         style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-size:90px;font-family:'Berlin Sans FB Demi';-inkscape-font-specification:'Berlin Sans FB Demi Bold';fill:#ffffff;fill-opacity:1">Freshipes</flowPara></flowRoot>    <rect
+       id="rect3736"
+       width="413.57144"
+       height="130.71428"
+       x="105.71429"
+       y="202.3622"
+       style="fill:none" />
+    <g
+       id="g5"
+       transform="matrix(1.983677,0,0,2.0580848,-280.78198,-145.10607)"
+       style="stroke:#ffffff;stroke-opacity:1;fill:#ffffff;fill-opacity:1">
+      <path
+         id="path7"
+         d="m 168.38765,212.695 28.78042,0 c 0.66125,0 1.19628,-0.48559 1.19628,-1.08573 l 0,-28.15966 c 4.78153,-0.51846 8.37379,-4.11915 8.37379,-8.62103 0,-4.78919 -4.29559,-8.6857 -9.57476,-8.6857 -1.12503,0 -2.24185,0.18126 -3.28859,0.53015 -1.78617,-3.37593 -6.46959,-5.95874 -11.13086,-5.95874 -4.63197,0 -9.28855,2.58175 -11.07121,5.95661 -1.04673,-0.35092 -2.1495,-0.52802 -3.29434,-0.52802 -5.27341,0 -9.56538,3.89651 -9.56538,8.6857 0,4.50294 3.59343,8.10257 8.37847,8.62103 l 0,28.15966 c -1.1e-4,0.60014 0.53503,1.08573 1.19618,1.08573 z m 27.58413,-2.17147 -26.38784,0 0,-6.51433 26.38784,0 0,6.51433 z m -21.57714,-8.68571 -4.8107,0 0,-19.40927 c 0,-0.60015 -0.53503,-1.08574 -1.19629,-1.08574 -4.02802,0 -7.18219,-2.86163 -7.18219,-6.51433 0,-3.59218 3.21733,-6.51432 7.17292,-6.51432 1.20332,0 2.34347,0.25976 3.38787,0.7729 0.32008,0.15796 0.70556,0.17179 1.03502,0.0446 0.33648,-0.12828 0.58882,-0.38804 0.68692,-0.70503 0.93223,-3.00374 5.17286,-5.54093 9.25585,-5.54093 4.11569,0 8.38082,2.53719 9.31657,5.54093 0.0981,0.31805 0.35044,0.57675 0.68458,0.70503 0.33414,0.12723 0.71728,0.11137 1.03502,-0.0446 1.02916,-0.5058 2.1986,-0.7729 3.38317,-0.7729 3.96028,0 7.18219,2.92214 7.18219,6.51432 0,3.65261 -3.15299,6.51433 -7.17761,6.51433 -0.66125,0 -1.19628,0.48559 -1.19628,1.08574 l 0,19.40927 -4.80837,0 0,-7.59996 c 0,-0.60015 -0.53503,-1.08574 -1.19628,-1.08574 -0.66126,0 -1.19629,0.48559 -1.19629,1.08574 l 0,7.59996 -4.76171,0 0,-9.77144 c 0,-0.60014 -0.53503,-1.08573 -1.19629,-1.08573 -0.66125,0 -1.19628,0.48559 -1.19628,1.08573 l 0,9.77144 -4.82946,0 0,-7.59996 c 0,-0.60015 -0.53503,-1.08574 -1.19628,-1.08574 -0.66126,0 -1.19629,0.48559 -1.19629,1.08574 l 0,7.59996 z"
+         inkscape:connector-curvature="0"
+         style="stroke:#ffffff;stroke-opacity:1;fill:#ffffff;fill-opacity:1" />
+    </g>
+    <rect
+       style="fill:none"
+       id="rect4548"
+       width="35.714287"
+       height="10"
+       x="382.14285"
+       y="413.07648" />
+    <rect
+       style="fill:none"
+       id="rect4550"
+       width="315"
+       height="47.857143"
+       x="130.71428"
+       y="180.21935" />
+  </g>
+</svg>

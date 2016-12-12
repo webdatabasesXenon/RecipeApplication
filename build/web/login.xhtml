@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://xmlns.jcp.org/jsp/jstl/core"
+      xmlns:a="http://xmlns.jcp.org/jsf/passthrough">
+    <h:head>
+        <title>Login</title>
+    </h:head>
+    <body>
+        <ui:composition template="templates/mainTemplate.xhtml">           
+            <ui:define name="content">
+                <h:outputText value="#{bundle.LoginTitle}" styleClass="heading" />
+                <form method="POST" action="j_security_check">
+                    <h:messages errorStyle="color: red" infoStyle="color: green"/>
+                    <h:panelGrid columns="2" columnClasses="leftColumn, rightColumn" >
+                        <h:outputLabel value="Username"/>
+                        <input type="text" name="j_username" />
+                        <h:outputLabel value="Password"/>
+                        <input type="password" name="j_password" />
+                        <h:outputText value="" />
+                        <input type="submit" value="Login" class="button" />
+                    </h:panelGrid>
+                </form>
+            </ui:define>
+        </ui:composition>
+    </body>
+</html>
