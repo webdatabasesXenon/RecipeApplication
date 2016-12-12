@@ -220,7 +220,7 @@ public class RecipeController implements Serializable {
         }
         catch (Exception e) {
             e.printStackTrace();
-            JsfUtil.addSuccessMessage("There was an error; the recipe was not added to your favorites");
+            JsfUtil.addErrorMessage("There was an error; the recipe was not added to your favorites");
         }
         return null;
     }
