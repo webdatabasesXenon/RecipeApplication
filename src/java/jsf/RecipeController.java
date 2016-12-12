@@ -63,7 +63,7 @@ public class RecipeController implements Serializable {
        FacesContext fc = FacesContext.getCurrentInstance();
       Map<String,String> params = fc.getExternalContext().getRequestParameterMap();
       theId =  Integer.parseInt(params.get("theId"));
-      return "viewRecipe";
+      return "/viewRecipe";
     }
     public RecipeController() {
     }
@@ -76,7 +76,7 @@ public class RecipeController implements Serializable {
         return current;
     }
     public String test2(){
-        return "index";
+        return "/index";
     }
     public List<Recipe> test(){
         String search;
@@ -206,6 +206,57 @@ public class RecipeController implements Serializable {
             System.out.println(r.getRecipeid()+" "+r.getDescription());
         
         return results;
+    }
+    
+    public String saveRecipe(Integer recipeid, User user) {
+        try {
+            List<Recipe> results = ejbFacade.getEntityManager().createNamedQuery("Recipe.findByRecipeid").setParameter("recipeid", recipeid).getResultList();
+            
+            current = results.get(0);
+            
+            current.getUserCollection().add(user);
+            ejbFacade.edit(current);
+            JsfUtil.addSuccessMessage("The recipe was added to your favorites");
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            JsfUtil.addSuccessMessage("There was an error; the recipe was not added to your favorites");
+        }
+        return null;
+    }
+ 
+    public boolean checkFavorite(Integer recipeid, User user) {
+        try {   
+            List<Recipe> results = ejbFacade.getEntityManager().createNamedQuery("Recipe.findFavorites").setParameter("user", user).getResultList();
+            
+            for(Recipe r: results) {
+                if(r.getRecipeid() == recipeid) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        }
+    }
+    
+    public boolean checkAuthor(Integer recipeid, User user) {
+        try {   
+            List<Recipe> results = ejbFacade.getEntityManager().createNamedQuery("Recipe.findByRecipeid").setParameter("recipeid", recipeid).getResultList();
+            
+            Recipe recipe = results.get(0);
+            
+            if(recipe.getUserid().getUserid() == user.getUserid()) {
+                return true;
+            }
+            return false;
+        }
+        catch (Exception e) {
+            e.printStackTrace();
+            return true;
+        }
     }
  
     public String destroyAndView() {

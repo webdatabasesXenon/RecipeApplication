@@ -32,8 +32,7 @@
                     
                     </h:inputText>
                     <h:commandLink action="#{recipeController.test2()}" >
-                        <i class="fa fa-search" aria-hidden="true" ></i>
-                        <!--<f:param name="searchString" value="" />-->  
+                        <i class="fa fa-search" aria-hidden="true" ></i> 
                         
                     </h:commandLink>
                     
@@ -65,7 +64,7 @@
 
         <nav>
             <ul class="topnav" id="myTopnav">
-                <li><h:link value="FIND RECIPES" outcome="/recipes" /></li>               
+                <li><h:link value="FIND RECIPES" outcome="/index" /></li>               
                 <li><h:link value="CREATE A RECIPE" outcome="/member/create" rendered="#{userSessionBean.loggedIn}" /></li>
                 <li><h:link value="JOIN NOW FOR FREE" outcome="/join" rendered="#{!userSessionBean.loggedIn}" /></li>
                 <li><h:link value="ABOUT FRESHIPES" outcome="/about" /></li>
@@ -89,7 +88,7 @@
             <p class="footer-links">
                     <h:link value="Home" outcome="/index" />
                     ·
-                    <h:link value="Recipes" outcome="/recipes" />
+                    <h:link value="Recipes" outcome="/index" />
                     ·
                     <h:outputText value =" · " rendered="#{userSessionBean.loggedIn}" />
                     <h:link value="Create a Recipe" outcome="/member/create" rendered="#{userSessionBean.loggedIn}" />

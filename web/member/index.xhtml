@@ -32,7 +32,7 @@
                         Scroll Down to Load More
                     </f:facet>
 
-                    <h:panelGrid columns="2" style="width:100%" columnClasses="recipeImageSmall,recipeDetail">
+                    <h:panelGrid columns="2" style="width:100%" columnClasses="recipeImageSmall,recipeDetail" styleClass="profileScroller">
                         <p:graphicImage value="#{PathBean.picPath}#{imageController.getFirstPath(created.recipeid)}" style="max-width: 50%" rendered="#{not empty imageController.getFirstPath(created.recipeid)}"/> 
                         <p:graphicImage value="#{PathBean.picPath}blank.jpg" style="max-width: 50%" rendered="#{empty imageController.getFirstPath(created.recipeid)}"/> 
                         <p:outputPanel>
@@ -43,7 +43,13 @@
                                 <h:outputText value="Description:" />
                                 <h:outputText value="#{created.description}" style="font-weight: bold"/>
                                 
+                                <h:outputText value="" />
+                                <h:commandLink value="View Recipe" action="#{recipeController.bringMeHere()}" >
+                                    <f:param name="theId" value="#{created.recipeid}" />  
+                                </h:commandLink>
+                                
                             </h:panelGrid>
+                            
                         </p:outputPanel>
                     </h:panelGrid>
                 </p:dataScroller>
@@ -69,6 +75,11 @@
 
                                 <h:outputText value="Description:" />
                                 <h:outputText value="#{favorite.description}" style="font-weight: bold"/>
+                                
+                                <h:outputText value="" />
+                                <h:commandLink value="View Recipe" action="#{recipeController.bringMeHere()}" >
+                                    <f:param name="theId" value="#{favorite.recipeid}" />  
+                                </h:commandLink>
                                 
                             </h:panelGrid>
                         </p:outputPanel>

@@ -31,8 +31,13 @@
                 <br></br>
                 <br></br>
                 <br></br>
-                <h:form rendered="#{userSessionBean.loggedIn}">
-                    <h:commandButton styleClass="button" value="+ Save This Recipe"/>
+                <h:panelGroup id="messagePanel" layout="block">
+                    <h:messages errorStyle="color: red" infoStyle="color: green" layout="table"/>
+                    <br></br>
+                    <br></br>
+                </h:panelGroup>
+                <h:form rendered="#{userSessionBean.loggedIn and !recipeController.checkFavorite(recipeController.theId, userSessionBean.user) and !recipeController.checkAuthor(recipeController.theId, userSessionBean.user)}">
+                    <h:commandButton action="#{recipeController.saveRecipe(recipeController.theId, userSessionBean.user)}" styleClass="button" value="+ Save This Recipe"/>
                     <br></br>
                     <br></br>
                     <br></br>
